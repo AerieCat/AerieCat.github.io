@@ -2,34 +2,106 @@
 <html>
 <head>
         <title>Aerie :3</title>
-    <link href="main.css" rel="stylesheet" type="text/css">
+	<style>
+        html {
+                box-sizing: border-box;
+                padding: 0;
+            }
+		body {
+            height: 100vh;
+			margin: 0;
+			padding: 0;
+			background-image: url("background.png");
+			background-size: cover;
+			background-position: center;
+			font-family: Arial, sans-serif;
+			color: #fff;
+		}
+		.container {
+			position: relative;
+			padding: 20px;
+			max-width: 800px;
+			margin: 0 auto;
+		}
+		.header {
+			position: absolute;
+			top: 20px;
+			left: 0;
+			width: 100%;
+			height: 80px;
+			background-color: rgba(40,40,40,0.7);
+			padding: 10px;
+			box-sizing: border-box;
+			border-bottom: 10px solid #000;
+		}
+		.body {
+			position: absolute;
+			top: 140px;
+			left: 0;
+			width: 100%;
+			height: 700px;
+			background-color: rgba(40,40,40,0.7);
+			padding: 10px;
+			box-sizing: border-box;
+			border-bottom: 10px solid #000;
+		}
+		.footer {
+			position: absolute;
+			top: 880px;
+			left: 0;
+			width: 100%;
+			height: 120px;
+			background-color: rgba(40,40,40,0.7);
+			padding: 10px;
+			box-sizing: border-box;
+			border-bottom: 10px solid #000;
+			text-align: center;
+		}
+		h1 {
+			margin-top: 0;
+		}
+		p {
+			line-height: 1.2;
+		}
+        iframe {
+			border: 5px #fff;
+			width: 800px;
+			height: 680px;
+		}
+        
+        
+	</style>
 </head>
-<body style="background-color: rgb(241, 153, 186)">
-    <header>
-        <h1><a href="index.html"><img src = "transtrain.webp" alt = "(insert train pic)" height="50" /></a> Aerie's site</h1>
-        <hr>
-    </header>
-    <div>
-        <p style="text-indent: 72px">Hey, I'm Aerie (She/her), I know alot about transportation and city planning and a little about trains. I do computers sometimes.</p>
-        <br>
-        <br><br><br><br><br><br><br><br><br><br>
-        <p style="text-indent: 72px">the more i read about florida the more i want to commit arson</p>
-        <h3></h3>
-    </div>
-    <footer>
-        <hr>
-        <center>
-                <img src = "88x31/ubuntu-88x31.gif" alt = "Ubuntu User" />
-                <img src = "88x31/transnow2.gif" alt = "trans rights" />
-                <img src = "88x31/rainbow.gif" alt = "gay" />
-                <img src = "88x31/gimp.gif" alt = "gimp user" />
-            <h3> | 
-                <a href="ExternalLinks.html">Funny pages</a> | 
-                <a href="projects.html">projects</a> | 
-                <a href="flags.html">flags</a> | 
-                <a href="blog-index.html">blog</a> | 
-            </h3>
-        </center>
-    </footer>
+<body>
+	<div class="container">
+		<div class="header">
+			<header>
+                <h1><a href="home.html" target="index"><img src = "transtrain.webp" alt = "(insert train pic)" height="50" /></a> Aerie's site</h1>
+                <hr>
+            </header>
+		</div>
+		<div class="body">
+			<iframe src="home.html" name="index"></iframe>
+		</div>
+		<div class="footer">
+			<footer>
+                <hr>
+                <center>
+                        <img src = "88x31/ubuntu-88x31.gif" alt = "Ubuntu User" />
+                        <img src = "88x31/transnow2.gif" alt = "trans rights" />
+                        <img src = "88x31/rainbow.gif" alt = "gay" />
+                        <img src = "88x31/gimp.gif" alt = "gimp user" />
+                    <h3 background-color = "rgba(120main,120,120,0.7)">
+                        <nav> | 
+                            <a href="ExternalLinks.html" target="index">Funny pages</a> | 
+                            <a href="projects.html" target="index">projects</a> | 
+                            <a href="flags.html" target="index">flags</a> | 
+                            <a href="blog-index.html" target="index">blog</a> | 
+                        </nav>
+                    </h3>
+                </center>
+            </footer>
+		</div>
+	</div>
 </body>
 </html>
