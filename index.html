@@ -94,15 +94,23 @@
                         <img src = "88x31/gimp.gif" alt = "gimp user" />
                     <h3>
                         <div background-color = "rgba(120main,120,120,0.7"> | 
-                            <a href="ExternalLinks.html" target="index">Funny pages</a> | 
-                            <a href="projects.html" target="index">projects</a> | 
-                            <a href="flags.html" target="index">flags</a> | 
-                            <a href="blog-index.html" target="index">blog</a> | 
+                            <a href="#ExternalLinks.html">Funny pages</a> | 
+                            <a href="#projects.html">projects</a> | 
+                            <a href="#flags.html">flags</a> | 
+                            <a href="#blog-index.html">blog</a> | 
                         </div>
                     </h3>
                 </center>
             </footer>
 		</div>
 	</div>
+    
+    <script>
+    window.addEventListener("hashchange", function() {
+        var fileName = window.location.hash.substr(1); // remove the "#" from the hash
+        document.getElementsByName("index")[0].src = fileName;
+    });
+</script>
+    
 </body>
 </html>
