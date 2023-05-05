@@ -1,0 +1,2 @@
+RewriteEngine On
+RewriteRule ^dir/?$ /dir/page.html [L,R=301]
