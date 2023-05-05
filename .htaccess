@@ -1,2 +1,2 @@
 RewriteEngine On
-RewriteRule ^dir/?$ /dir/page.html [L,R=301]
+RewriteRule ^uwu/?$ /uwu/owo.html [L,R=301]
