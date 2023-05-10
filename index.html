@@ -166,15 +166,11 @@
             function toggleMode() {
                 var body = document.body;
                 body.classList.toggle("light");
-    
-                // Update the image source and alt text based on the current mode
                 var toggleButton = document.getElementById("toggle-button");
                 var isLightMode = body.classList.contains("light");
                 toggleButton.src = isLightMode ? "sun.png" : "moon.png";
                 toggleButton.alt = isLightMode ? "Toggle Light Mode" : "Toggle Dark Mode";
             }
-
-            // Event listener for mode toggle
             var toggleButton = document.getElementById("toggle-button");
             toggleButton.addEventListener("click", toggleMode);
             
