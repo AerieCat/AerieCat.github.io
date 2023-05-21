@@ -1,24 +1,64 @@
 
 <body style="background-color: rgb(241, 153, 186)">
+    <style>
+        details summary {
+            list-style: none;
+            position: relative;
+            padding-left: 1.2em;
+            cursor: pointer;    
+        }
+
+        details summary::before {
+            content: '\25B6'; /* Unicode character for a right-pointing triangle */
+            display: inline-block;
+            position: absolute;
+            left: 0.2em;
+            transform: rotate(0);
+            transition: transform 0.2s;
+        }
+
+        details[open] summary::before {
+            transform: rotate(90deg);
+        }
+    </style>
+    
+    
     <h2>List of cool websites</h2>
     
-    <h3>Train stuff:</h3>
-        <p style="text-indent: 40px">
-            <li><a href="https://www.openrailwaymap.org/" target="_parent">openRailwayMap</a> map of every railroad</li>
-        </p>
-    <h3>Trans stuff:</h3>
-        <p style="text-indent: 40px">
-            <li><a href="https://translegislation.com/" target="_parent">Trans Legislation tracker</a> A website that tracks legislation that effects the trans community </li>
-        </p>
-    <h3>Tech stuff:</h3>
-        <p style="text-indent: 40px">
-            <li><a href="https://pages.github.com/" target="_parent">Github pages</a> free software to host your static website: It is what I am using in case you wanted to build your own </li>
-            <li><a href="https://github.com/CharlotteCross1998/linuwux" target="_parent">Linuwux</a> a colection of cute linux logos </li>
-            <li><a href="http://moebuntu.web.fc2.com/home_eng.html" target="_parent">Moebuntu</a> a Moe theme for an ubuntu operating system </li>
-        </p>
-        <h4 style="text-indent: 40px">friendly <a href="https://itsfoss.com/what-is-foss/" target="_parent">FOSS</a> softwares:</h4>
-            <p>
-                <li style="text-indent: 40px">Photo editting: 
+    <details>
+        <summary><h3>Train stuff:</h3></summary>
+        <ul>
+            <p style="text-indent: 40px">
+                <li><a href="https://www.openrailwaymap.org/" target="_parent">openRailwayMap</a> map of every railroad</li>
+            </p>
+        </ul>
+    </details>
+    
+    <details>
+        <summary><h3>Trans stuff:</h3></summary>
+        <ul>
+            <p style="text-indent: 40px">
+                <li><a href="https://translegislation.com/" target="_parent">Trans Legislation tracker</a> A website that tracks legislation that effects the trans community </li>
+            </p>
+        </ul>
+    </details>
+        
+    <details>
+        <summary><h3>Tech stuff:</h3></summary>
+        <ul>
+            <p style="text-indent: 40px">
+                <li><a href="https://pages.github.com/" target="_parent">Github pages</a> free software to host your static website: It is what I am using in case you wanted to build your own </li>
+                <li><a href="https://github.com/CharlotteCross1998/linuwux" target="_parent">Linuwux</a> a colection of cute linux logos </li>
+                <li><a href="http://moebuntu.web.fc2.com/home_eng.html" target="_parent">Moebuntu</a> a Moe theme for an ubuntu operating system </li>
+            </p>
+        </ul>
+    </details>
+    
+    <details>
+        <summary><h4>friendly <a href="https://itsfoss.com/what-is-foss/" target="_parent">FOSS</a> softwares:</h4></summary>
+        <ul>
+            <p style="text-indent: 40px">
+                <li >Photo editting: 
                     <a href="https://www.gimp.org/" target="_parent">GIMP</a>, 
                     <a href="https://krita.org/en/" target="_parent">KRITA</a>
                 </li>
@@ -32,15 +72,28 @@
                     <a href="https://obsproject.com/" target="_parent">OBS</a>
                 </li>
             </p>
-     <h3>other:</h3>
-        <p style="text-indent: 40px">
-            <li><a href="https://annas-archive.org/" target="_parent">Anna's Archive</a> A search engine for ghost libraries </li>
-            <li><a href="https://www.crwflags.com/fotw/flags/" target="_parent">Flags of the World</a> A database of flags!</li>
-        </p>
-    <h3>cool sites i stumble upon:</h3>
-        <p style="text-indent: 40px">
-            <li><a href="https://maia.crimew.gay/" target="_parent">maia crimew</a> Transfem 'hacker' most famous for leaking the nofly list </li>
-            <li><a href="https://oat.zone/" target="_parent">oatmealline</a> Gamedev and sysadmin who integrated a linux terminal into her website (really cool)</li>
-            <li><a href="https://sadgirlsclub.wtf/vibex.html" target="_parent">sadgirlclub</a> a really good online radio station</li>
-        </p>
+        </ul>
+    </details>
+            
+    <details>
+        <summary><h3>other:</h3></summary>
+        <ul>
+            <p style="text-indent: 40px">
+                <li><a href="https://annas-archive.org/" target="_parent">Anna's Archive</a> A search engine for ghost libraries </li>
+                <li><a href="https://www.crwflags.com/fotw/flags/" target="_parent">Flags of the World</a> A database of flags!</li>
+            </p>
+        </ul>
+    </details>
+        
+    <details>
+        <summary><h3>cool sites i stumble upon:</h3></summary>
+        <ul>
+            <p style="text-indent: 40px">
+                <li><a href="https://maia.crimew.gay/" target="_parent">maia crimew</a> Transfem 'hacker' most famous for leaking the nofly list </li>
+                <li><a href="https://oat.zone/" target="_parent">oatmealline</a> Gamedev and sysadmin who integrated a linux terminal into her website (really cool)</li>
+                <li><a href="https://sadgirlsclub.wtf" target="_parent">sadgirlclub</a> a really good online radio station</li>
+                <li><a href="https://sizeof.cat/" target="_parent">sizeof(cat)</a> an indie site with some cool articles</li>
+            </p>
+        </ul>
+    </details>
 </body>
