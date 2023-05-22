@@ -16,10 +16,12 @@
             var hours = Math.floor(timeRemaining / (1000 * 60 * 60));
             var minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
             var seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+            
+            var formattedTime = hours.toString().padStart(2, '0') + ":" +
+                      minutes.toString().padStart(2, '0') + ":" +
+                      seconds.toString().padStart(2, '0');
 
-            var time = hours + ":" + minutes + ":" + seconds;
-
-            document.getElementById("clock").textContent = time;
+            document.getElementById("clock").textContent = formattedTime;
         }
         setInterval(updateClock, 1000);
     </script>
