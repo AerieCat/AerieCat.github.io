@@ -2,6 +2,8 @@
     <h2>time to next pill:</h2>
     <div id="clock"></div>
     
+    
+    
     <script>
     function updateClock() {
             var now = new Date();
@@ -24,5 +26,6 @@
             document.getElementById("clock").textContent = formattedTime;
         }
         setInterval(updateClock, 1000);
+        updateClock();
     </script>
 </body>
