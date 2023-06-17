@@ -8,7 +8,7 @@
         <lastBuildDate>6 June 2023</lastBuildDate>
         <item>
             <title>A newtab page</title>
-            <link>https://aeriecat.space/index.html#blog/Newtab-Page.html</link>
+            <link>https://aeriecat.space/index#b/Newtab-Page</link>
             <pubDate>21 May 2023</pubDate>
             <description>
                 <![CDATA[
@@ -21,13 +21,13 @@
                     <br>
                     after using it for a while i realized i would write notes a lot in my book that i really needed localized on my computer. I would write things like features i want to add to the site and things i need to do the next day so next I added a notes feature to the lower section. I also added a feature using google's maps API that will tell me the traffic on the way to work so i know how much time i have in the morning but it's broken right now because of CORS. More features and updates to come!
                     <h3>Image as of June 6</h3>
-                    <img src="blog/blog-images/newtab.png" width="700px" border="1">
+                    <img src="b/blog-images/newtab.png" width="700px" border="1">
                 ]]>
             </description>
         </item>
         <item>
             <title>Exploring the Internets</title>
-            <link>https://aeriecat.space/index.html#blog/exploring-the-internets.html</link>
+            <link>https://aeriecat.space/index#b/exploring-the-internets</link>
             <pubDate>21 May 2023</pubDate>
             <description>
                 <![CDATA[
@@ -46,7 +46,7 @@
                     <p><img src="/banners/Aeriessite.png"></p>
                     another thing to look for is a webring, these are sites that all link each other together. these can make it easier to find new sites as they will usually have a list of sites or easy links to get between them all.
                     <h3>where to start</h3>
-                    if i find a site i find interesting or one that has easy code to put a button on my page I'll put it in my <a href="../index.html#ExternalLinks.html" target="_parent">link list</a> page under 'cool sites i stumble upon'. There's also some helpfull lists on sizeof.cat at <a href="https://sizeof.cat/post/website-discovery/" target="_blank">this post</a>.
+                    if i find a site i find interesting or one that has easy code to put a button on my page I'll put it in my <a href="../index#ExternalLinks" target="_parent">link list</a> page under 'cool sites i stumble upon'. There's also some helpfull lists on sizeof.cat at <a href="https://sizeof.cat/post/website-discovery/" target="_blank">this post</a>.
                 ]]>
             </description>
         </item>
