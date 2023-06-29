@@ -5,11 +5,22 @@
         <link>https://aeriecat.space/</link>
         <description>AerieCat feed, mostly just interesting things</description>
         <language>en-us</language>
-        <lastBuildDate>6 June 2023</lastBuildDate>
+        <lastBuildDate>29 June 2023</lastBuildDate>
+        <item>
+            <title>Creating a recipe database, except smol and just for me</title>
+            <link>https://aeriecat.space/#recipes</link>
+            <pubDate>29 June 2023</pubDate>
+            <description>
+                <![CDATA[
+                    <h3>recipes page added</h3>
+                    hello all 1 persons reading this, sorry for all the broken notifs you might have gotten recently, I kept changing links as i updated the .htaccess to make the urls look pretty. Anyways, I started to realize my dream of being a food blogger so i added recipes to my page. In reality i just needed somewhere to put them and easily be able to send them to my mom :p
+                ]]>
+            </description>
+        </item>
         <item>
             <title>A newtab page</title>
             <link>https://aeriecat.space/index#b/Newtab-Page</link>
-            <pubDate>21 May 2023</pubDate>
+            <pubDate>6 June 2023</pubDate>
             <description>
                 <![CDATA[
                     <h3>A Homepage for my Computer June 6th</h3>
