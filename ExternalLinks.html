@@ -28,6 +28,8 @@
     
     
     <h2>List of cool websites</h2>
+     <button id="closeButton">Collapse all lists</button>
+    <button id="openButton">Open all lists</button>
     
     <details open>
         <summary><h3>Train stuff:</h3></summary>
@@ -56,33 +58,8 @@
                 <li><a href="https://pages.github.com/" target="_blank">Github pages</a> free software to host your static website: It is what I am using in case you wanted to build your own </li>
                 <li><a href="https://github.com/CharlotteCross1998/linuwux" target="_blank">Linuwux</a> a colection of cute linux logos </li>
                 <li><a href="http://moebuntu.web.fc2.com/home_eng.html" target="_blank">Moebuntu</a> a Moe theme for an ubuntu operating system </li>
-                <li><a href="https://osintframework.com/">OSINT Framework</a> OSINT framework focused on gathering information from free tools or resources.</li>
+                <li><a href="https://osintframework.com/" target="_blank">OSINT Framework</a> OSINT framework focused on gathering information from free tools or resources.</li>
             </p>
-        </ul>
-    </details>
-    
-    <details open>
-        <summary><h3>friendly softwares:</h3></summary>
-        <ul>
-            <p style="text-indent: 40px">
-                <li >Photo editting: 
-                    <a href="https://www.gimp.org/" target="_blank">GIMP</a>*, 
-                    <a href="https://krita.org/en/" target="_blank">KRITA</a>*
-                </li>
-                <li>Video Editting: 
-                    <a href="https://kdenlive.org/en/download/" target="_blank">kdenlive</a>*
-                </li>
-                <li>Video playback: 
-                    <a href="https://www.videolan.org/vlc/" target="_blank">VLC</a>*
-                </li>
-                <li>Camera/recording: 
-                    <a href="https://obsproject.com/" target="_blank">OBS</a>*
-                </li>
-                <li>IDE: 
-                    <a href="https://brackets.io/" target="_blank">Brackets(HTML)</a>*
-                </li>
-            </p>
-            *<a href="https://itsfoss.com/what-is-foss/" target="_blank">FOSS</a> 
         </ul>
     </details>
             
@@ -94,6 +71,7 @@
                 <li><a href="https://www.openttd.org/" target="_blank">openTTD</a> simulation game based upon the popular Microprose game "Transport Tycoon Deluxe"</li>
                 <li><a href="https://openrct2.org/" target="_blank">openRCT2</a> re-implementation of RollerCoaster Tycoon 2 (RCT2), expanding the game with new features</li>
                 <li><a href="https://spacestation14.io/" target="_blank">Space Station 14</a> tells the story of an ordinary shift on a space station gone wrong. Immerse yourself into your role, tinker with detailed systems, and survive the chaos in this round-based multiplayer role playing game.</li>
+                <li><a href="https://libregamewiki.org/Main_Page" target="_blank">LibregameWiki</a>LibreGameWiki is a wiki of free games and related topics</li>
             </p>
         </ul>
     </details>
@@ -137,4 +115,20 @@
             </h3>
         </ul>
     </details>
+    
+    <script>
+    document.getElementById('closeButton').addEventListener('click', function() {
+      var detailsElements = document.getElementsByTagName('details');
+      for (var i = 0; i < detailsElements.length; i++) {
+        detailsElements[i].removeAttribute('open');
+      }
+    });
+        
+    document.getElementById('openButton').addEventListener('click', function() {
+      var detailsElements = document.getElementsByTagName('details');
+      for (var i = 0; i < detailsElements.length; i++) {
+        detailsElements[i].setAttribute('open', 'true');
+      }
+    });
+  </script>
 </body>
