@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <body style="background-color: rgb(241, 153, 186)">
+        <a href="../index.html#projects" target="_parent">back to Index</a>
+        <main>
+            <section class="products">
+                <h1>throw away your money button</h1>
+                <p>a friend wanted to see how the paypal API worked so i threw this together, it charges you one dollar</p>
+
+                <div id="paypal-button-container"></div>
+                
+            </section>
+        </main>
+    <script src="https://www.paypal.com/sdk/js?client-id=AQw8wXLVib9nuKLJ5vIr9t4OROaLaqRJtXkJftGAn0WCQeg832-KzEef_YUIdJQqXljSVBcguTAmB33o"></script>
+    <script>
+        paypal.Buttons({
+            createOrder: function(data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: '1.00'
+                        }
+                    }]
+                });
+            },
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(details) {
+                    alert('Transaction completed by ' + details.payer.name.given_name);
+                    // Additional actions (e.g., send confirmation email, update database) can be added here.
+                });
+            }
+        }).render('#paypal-button-container');
+    </script>
+    </body>
+</html>
