@@ -2,7 +2,7 @@
 :root {
     --bg-color: rgba(40,40,40,0.7); 
     --text-color: #fff; 
-    --background-image: url("backgrounds/background.png");
+    --background-image: url("backgrounds/background_small.jpg");
     --bar-color: rgb(0, 0, 0)
 }
 .light {
@@ -25,6 +25,7 @@ body {
     height: 100vh;
     margin: 0;
     padding: 0;
+    background-color: black;
     background-image: var(--background-image);
     background-size: cover;
     background-position: center;

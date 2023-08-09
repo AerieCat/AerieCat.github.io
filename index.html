@@ -110,47 +110,68 @@
                 var isLightMode = body.classList.contains("light");
                 toggleButton.src = isLightMode ? "sun.png" : "moon.png";
                 toggleButton.alt = isLightMode ? "Toggle Light Mode" : "Toggle Dark Mode";
+                if(isLightMode){
+                    body.style.backgroundImage = "url('backgrounds/background.jpg')"
+                }
+                if(!isLightMode){
+                    body.style.backgroundImage = "url('backgrounds/background.png')"
+                }
             }
             var toggleButton = document.getElementById("toggle-button");
             toggleButton.addEventListener("click", toggleMode);
         </script>
     
-    <script>
-        const rssFeedDiv = document.getElementById('rss_reader');
-
-        const rssFeedUrl = 'index.xml';
-
-        fetch(rssFeedUrl)
-            .then(response => response.text())
-            .then(data => {
-                const parser = new DOMParser();
-                const xmlDoc = parser.parseFromString(data, 'text/xml');
-                const websiteName = xmlDoc.querySelector('channel > title').textContent;
-                const items = xmlDoc.querySelectorAll('item');
-
-                items.forEach(item => {
-                    const title = item.querySelector('title').textContent;
-                    const link = item.querySelector('link').textContent;
-                    const description = item.querySelector('description').textContent;
-                    const pubDate = new Date(item.querySelector('pubDate').textContent).toLocaleDateString();
-
-                    const entryLink = document.createElement('a');
-                    entryLink.href = link;
-                    entryLink.classList.add('entry-link');
-                    const entryDiv = document.createElement('div');
-                    entryDiv.classList.add('entry');
-                    const cornerText = document.createElement('div');
-                    cornerText.classList.add('corner-text');
-                    cornerText.textContent = websiteName + ' | ' + pubDate;
-                    entryDiv.appendChild(cornerText);
-                    entryDiv.innerHTML += `<h2>${title}</h2>`;
-
-                    entryLink.appendChild(entryDiv);
-                    rssFeedDiv.appendChild(entryLink);
-                });
-            })
-            .catch(error => {
-                console.error('Error fetching or parsing RSS feed:', error);
+        <script>
+            // Change background image on load
+            document.addEventListener('DOMContentLoaded', function () {
+                console.log("it do it");
+                var body = document.body;
+                var currentBackground = getComputedStyle(body).backgroundImage;
+                console.log(currentBackground)
+                if (currentBackground.includes('background_small.jpg')) {
+                    console.log('changing background dark')
+                    body.style.backgroundImage = "url('backgrounds/background.png')";
+                }
             });
-    </script>
+        </script>
+
+        <script>
+            const rssFeedDiv = document.getElementById('rss_reader');
+
+            const rssFeedUrl = 'index.xml';
+
+            fetch(rssFeedUrl)
+                .then(response => response.text())
+                .then(data => {
+                    const parser = new DOMParser();
+                    const xmlDoc = parser.parseFromString(data, 'text/xml');
+                    const websiteName = xmlDoc.querySelector('channel > title').textContent;
+                    const items = xmlDoc.querySelectorAll('item');
+
+                    items.forEach(item => {
+                        const title = item.querySelector('title').textContent;
+                        const link = item.querySelector('link').textContent;
+                        const description = item.querySelector('description').textContent;
+                        const pubDate = new Date(item.querySelector('pubDate').textContent).toLocaleDateString();
+
+                        const entryLink = document.createElement('a');
+                        entryLink.href = link;
+                        entryLink.classList.add('entry-link');
+                        const entryDiv = document.createElement('div');
+                        entryDiv.classList.add('entry');
+                        const cornerText = document.createElement('div');
+                        cornerText.classList.add('corner-text');
+                        cornerText.textContent = websiteName + ' | ' + pubDate;
+                        entryDiv.appendChild(cornerText);
+                        entryDiv.innerHTML += `<h2>${title}</h2>`;
+
+                        entryLink.appendChild(entryDiv);
+                        rssFeedDiv.appendChild(entryLink);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching or parsing RSS feed:', error);
+                });
+        </script>
+    </body>
 </html>
