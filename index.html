@@ -107,7 +107,6 @@
     <script>
         const rssFeedDiv = document.getElementById('rss_reader');
 
-        // Replace 'rss-feed.xml' with the path to your RSS feed XML file
         const rssFeedUrl = 'index.xml';
 
         fetch(rssFeedUrl)
@@ -115,10 +114,7 @@
             .then(data => {
                 const parser = new DOMParser();
                 const xmlDoc = parser.parseFromString(data, 'text/xml');
-
-                // Extract website name from the channel element
                 const websiteName = xmlDoc.querySelector('channel > title').textContent;
-
                 const items = xmlDoc.querySelectorAll('item');
 
                 items.forEach(item => {
@@ -127,24 +123,19 @@
                     const description = item.querySelector('description').textContent;
                     const pubDate = new Date(item.querySelector('pubDate').textContent).toLocaleDateString();
 
-                    const entryLink = document.createElement('a'); // Create a link element
-                    entryLink.href = link; // Set the link's href attribute
-                    entryLink.classList.add('entry-link'); // Add the 'entry-link' class
-
-
+                    const entryLink = document.createElement('a');
+                    entryLink.href = link;
+                    entryLink.classList.add('entry-link');
                     const entryDiv = document.createElement('div');
-                    entryDiv.classList.add('entry'); // Add the 'entry' class
-
-                    // Add website name and date to the top left corner
+                    entryDiv.classList.add('entry');
                     const cornerText = document.createElement('div');
                     cornerText.classList.add('corner-text');
                     cornerText.textContent = websiteName + ' | ' + pubDate;
                     entryDiv.appendChild(cornerText);
-
                     entryDiv.innerHTML += `<h2>${title}</h2>`;
 
-                    entryLink.appendChild(entryDiv); // Append the div to the link
-                    rssFeedDiv.appendChild(entryLink); // Append the link to the feed div
+                    entryLink.appendChild(entryDiv);
+                    rssFeedDiv.appendChild(entryLink);
                 });
             })
             .catch(error => {
