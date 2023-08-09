@@ -3,204 +3,78 @@
     <head>
         <title>Aerie :3</title>
         <link rel="icon" type="image/x-icon" href="transtrain.ico">
-        <style>
-            
-            :root {
-                --bg-color: rgba(40,40,40,0.7); 
-                --text-color: #fff; 
-                --background-image: url("backgrounds/background.png");
-                --bar-color: rgb(0, 0, 0)
-            }
-            .light {
-                --bg-color: rgba(255,182,193,0.6); 
-                --text-color: #000; 
-                --background-image: url("backgrounds/background.jpg");
-                --bar-color: rgb(255, 105, 180)
-            }
-            
-            .center-div h5,
-            .center-div p,
-            .center-div h3 {
-                margin: 5px 0;
-            }
-            html {
-                box-sizing: border-box;
-                padding: 0;
-            }
-            body {
-                height: 100vh;
-                margin: 0;
-                padding: 0;
-                background-image: var(--background-image);
-                background-size: cover;
-                background-position: center;
-                font-family: Arial, sans-serif;
-                color: var(--text-color);
-            }
-            .container {
-                position: relative;
-                padding: 20px;
-                max-width: 800px;
-                margin: 0 auto;
-            }
-            .header {
-                height: 120px;
-                width: 800px;
-                margin: 20px auto 0;
-                background-color: var(--bg-color);
-                padding: 10px;
-                box-sizing: border-box;
-                border-bottom: 10px solid var(--bar-color);
-            }
-            .body {
-                flex-grow: 1;
-                width: 800px;
-                margin: 20px auto 20px;
-                background-color: var(--bg-color);
-                box-sizing: border-box;
-                border-bottom: 10px solid var(--bar-color);
-                height: calc(100vh - 360px);
-            }
-            .footer {
-                height: 140px;
-                width: 800px;
-                margin: 0 auto 0px;
-                background-color: var(--bg-color);
-                box-sizing: border-box;
-                border-bottom: 10px solid var(--bar-color);
-                text-align: center;
-                flex-shrink: 0;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-            }
-            .footer-content {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                width: 800px;
-            }
-            .left-div, .right-div {
-                text-align: center;
-                /*background-color: rgba(120,120,120,0.5)*/
-            }
-            h1 {
-                margin-top: 0;
-            }
-            p {
-                line-height: 1.2;
-            }
-            iframe {
-                border: 1px #fff;
-                width: 800px;
-                height: calc(100vh - 370px);
-            }
-            .colored-box {
-                display: inline-block;
-                background-color: rgba(255,255,255,0.5); 
-                padding: 5px 10px; 
-            }  
-            @media (pointer:none), (pointer:coarse) {
-                iframe {
-                    height: 1200px;
-                }
-                .body{
-                    height: 1180px;
-                }
-           }
-            
-            a.secret {
-                color: var(--text-color);
-            }
-            
-            a {
-                text-decoration: none;
-            }
-            
-            a.secret:hover,
-            a.secret:hover {
-                text-decoration: none;
-            }
-            
-            a:hover,
-            a:hover {
-                text-decoration: underline;
-            }
-
-        </style>
+        <link rel="stylesheet" type="text/css" href="index.css">
     </head>
     
     <body>
-        <div class="container">
-            <div class="header">
-                <header>
-                    <div class = "footer-content">
-                        <div class="left-div">
-                            <h1>
-                                <a href="#home">
-                                    <img src = "transtrain.webp" alt = "(insert train pic)" height="50" />
-                                </a> 
-                                <a href="cat-space" class="secret">Cat</a> Space
-                            </h1>
-                        </div>
-                        <div class="right-div" style="display: inline-block; width: 85px;">
-                            <img id="toggle-button" src="moon.png" alt="Toggle Light Mode" width="75" style="margin-left: -30px;">
-                        </div>
-                    </div>
-                </header>
+        <div class="main_grid">
+            <div class="right_sidebar">
+                <center><h3>what's new?</h3></center>
+                <div id="rss_reader">
+
+                </div>
             </div>
-            <div class="body">
-                <iframe name="index"></iframe>
+            <div class="middle_container">
+                <div class="header">
+                    <header>
+                        <div class = "footer-content">
+                            <div class="left-div">
+                                <h1>
+                                    <a href="#home">
+                                        <img src = "transtrain.webp" alt = "(insert train pic)" height="50" />
+                                    </a> 
+                                    <a href="cat-space" class="secret">Cat</a> Space
+                                </h1>
+                            </div>
+                            <div class="right-div" style="display: inline-block; width: 85px;">
+                                <img id="toggle-button" src="moon.png" alt="Toggle Light Mode" width="75" style="margin-left: -30px;">
+                            </div>
+                        </div>
+                    </header>
+                </div>
+                <div class="body">
+                    <iframe name="index"></iframe>
+                </div>
+                <div class="footer">
+                    <footer>
+                        <hr>
+                        <div class="footer-content">
+                            <div class="left-div">
+                                <!--<p>left</p>-->
+                            </div>
+                            <div class="center-div">
+                                <!--<h5>Part of the SadGirlsClub Webring</h5>-->
+                                <h3>
+                                    <img src="88x31/ubuntu-88x31.gif" alt="Ubuntu User" />
+                                    <img src="88x31/transnow2.gif" alt="trans rights" />
+                                    <img src="88x31/rainbow.gif" alt="gay" />
+                                    <img src="88x31/gimp.gif" alt="gimp user" />
+                                    <img src="88x31/aeriecat.space.png" alt="aeriecat.space" title="Feel free to use">
+                                </h3>
+                                <h3>
+                                    <span class="colored-box"> |
+                                        <a href="#ExternalLinks">link list</a> |
+                                        <a href="#projects">projects</a> |
+                                        <a href="#blog-index">blog</a> |
+                                        <a href="#recipes">recipes</a> |
+                                        <a href="index.xml"><img src=https://wp-assets.rss.com/blog/wp-content/uploads/2019/10/10111557/social_style_3_rss-512-1.png height="18" style="position: relative; top: 5px;"></a>
+                                    </span>
+                                </h3>
+                            </div>
+                            <div class="right-div">
+                                <!--<p>right</p>-->
+                            </div>
+                        </div>
+                    </footer>
+                </div>
             </div>
-            <div class="footer">
-                <footer>
-                    <hr>
-                    <div class="footer-content">
-                        <div class="left-div">
-                            <!--<p>left</p>-->
-                        </div>
-                        <div class="center-div">
-                            <!--<h5>Part of the SadGirlsClub Webring</h5>-->
-                            <h3>
-                                <img src="88x31/ubuntu-88x31.gif" alt="Ubuntu User" />
-                                <img src="88x31/transnow2.gif" alt="trans rights" />
-                                <img src="88x31/rainbow.gif" alt="gay" />
-                                <img src="88x31/gimp.gif" alt="gimp user" />
-                                <img src="88x31/aeriecat.space.png" alt="aeriecat.space" title="Feel free to use">
-                            </h3>
-                            <h3>
-                                <span class="colored-box"> |
-                                    <a href="#ExternalLinks">link list</a> |
-                                    <a href="#projects">projects</a> |
-                                    <a href="#blog-index">blog</a> |
-                                    <a href="#recipes">recipes</a> |
-                                    <a href="index.xml"><img src=https://wp-assets.rss.com/blog/wp-content/uploads/2019/10/10111557/social_style_3_rss-512-1.png height="18" style="position: relative; top: 5px;"></a>
-                                </span>
-                            </h3>
-                        </div>
-                        <div class="right-div">
-                            <!--<p>right</p>-->
-                        </div>
-                    </div>
-                </footer>
+            <div class="left_sidebar">
+                    <p>This is the left sidebar.</p>
+                    <!-- You can add content to the sidebar here -->
             </div>
         </div>
 
-        <script>
-            /* Light Mode toggle */
-            function toggleMode() {
-                var body = document.body;
-                body.classList.toggle("light");
-                var toggleButton = document.getElementById("toggle-button");
-                var isLightMode = body.classList.contains("light");
-                toggleButton.src = isLightMode ? "sun.png" : "moon.png";
-                toggleButton.alt = isLightMode ? "Toggle Light Mode" : "Toggle Dark Mode";
-            }
-            var toggleButton = document.getElementById("toggle-button");
-            toggleButton.addEventListener("click", toggleMode);
-            
-            
+        <script> //handles which html to load into the iframe based on url
             /* iframe code */
             window.addEventListener("hashchange", function() {
                 var fileName = window.location.hash.substr(1);
@@ -215,5 +89,66 @@
                 window.dispatchEvent(new Event("hashchange"));
             }
         </script>
-    </body>
+
+        <script> //handles lightmode
+            /* Light Mode toggle */
+            function toggleMode() {
+                var body = document.body;
+                body.classList.toggle("light");
+                var toggleButton = document.getElementById("toggle-button");
+                var isLightMode = body.classList.contains("light");
+                toggleButton.src = isLightMode ? "sun.png" : "moon.png";
+                toggleButton.alt = isLightMode ? "Toggle Light Mode" : "Toggle Dark Mode";
+            }
+            var toggleButton = document.getElementById("toggle-button");
+            toggleButton.addEventListener("click", toggleMode);
+        </script>
+    
+    <script>
+        const rssFeedDiv = document.getElementById('rss_reader');
+
+        // Replace 'rss-feed.xml' with the path to your RSS feed XML file
+        const rssFeedUrl = 'index.xml';
+
+        fetch(rssFeedUrl)
+            .then(response => response.text())
+            .then(data => {
+                const parser = new DOMParser();
+                const xmlDoc = parser.parseFromString(data, 'text/xml');
+
+                // Extract website name from the channel element
+                const websiteName = xmlDoc.querySelector('channel > title').textContent;
+
+                const items = xmlDoc.querySelectorAll('item');
+
+                items.forEach(item => {
+                    const title = item.querySelector('title').textContent;
+                    const link = item.querySelector('link').textContent;
+                    const description = item.querySelector('description').textContent;
+                    const pubDate = new Date(item.querySelector('pubDate').textContent).toLocaleDateString();
+
+                    const entryLink = document.createElement('a'); // Create a link element
+                    entryLink.href = link; // Set the link's href attribute
+                    entryLink.classList.add('entry-link'); // Add the 'entry-link' class
+
+
+                    const entryDiv = document.createElement('div');
+                    entryDiv.classList.add('entry'); // Add the 'entry' class
+
+                    // Add website name and date to the top left corner
+                    const cornerText = document.createElement('div');
+                    cornerText.classList.add('corner-text');
+                    cornerText.textContent = websiteName + ' | ' + pubDate;
+                    entryDiv.appendChild(cornerText);
+
+                    entryDiv.innerHTML += `<h2>${title}</h2>`;
+
+                    entryLink.appendChild(entryDiv); // Append the div to the link
+                    rssFeedDiv.appendChild(entryLink); // Append the link to the feed div
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching or parsing RSS feed:', error);
+            });
+    </script>
 </html>

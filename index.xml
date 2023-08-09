@@ -5,7 +5,18 @@
         <link>https://aeriecat.space/</link>
         <description>AerieCat feed, mostly just interesting things</description>
         <language>en-us</language>
-        <lastBuildDate>29 June 2023</lastBuildDate>
+        <lastBuildDate>8 August 2023</lastBuildDate>
+        <item>
+            <title>Website design update</title>
+            <link>https://aeriecat.space/#p/weblog</link>
+            <pubDate>8 August 2023</pubDate>
+            <description>
+                <![CDATA[
+                    <h3>Website made better</h3>
+                    added some sidebars and made it scale better, added this feed to the left and not sure what i'll do with the left
+                ]]>
+            </description>
+        </item>
         <item>
             <title>Creating a recipe database, except smol and just for me</title>
             <link>https://aeriecat.space/#recipes</link>
@@ -19,7 +30,7 @@
         </item>
         <item>
             <title>A newtab page</title>
-            <link>https://aeriecat.space/index#b/Newtab-Page</link>
+            <link>https://aeriecat.space/#b/Newtab-Page</link>
             <pubDate>6 June 2023</pubDate>
             <description>
                 <![CDATA[
@@ -38,7 +49,7 @@
         </item>
         <item>
             <title>Exploring the Internets</title>
-            <link>https://aeriecat.space/index#b/exploring-the-internets</link>
+            <link>https://aeriecat.space/#b/exploring-the-internets</link>
             <pubDate>21 May 2023</pubDate>
             <description>
                 <![CDATA[
