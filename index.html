@@ -124,14 +124,16 @@
         <script>
             // Change background image on load
             document.addEventListener('DOMContentLoaded', function () {
-                console.log("it do it");
-                var body = document.body;
-                var currentBackground = getComputedStyle(body).backgroundImage;
-                console.log(currentBackground)
-                if (currentBackground.includes('background_small.jpg')) {
-                    console.log('changing background dark')
-                    body.style.backgroundImage = "url('backgrounds/background.png')";
-                }
+                setTimeout(function () {
+                    console.log("it do it");
+                    var body = document.body;
+                    var currentBackground = getComputedStyle(body).backgroundImage;
+                    console.log(currentBackground)
+                    if (currentBackground.includes('background_small.jpg')) {
+                        console.log('changing background dark')
+                        body.style.backgroundImage = "url('backgrounds/background.png')";
+                    }
+            }, 100);
             });
         </script>
 
