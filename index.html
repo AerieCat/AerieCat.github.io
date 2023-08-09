@@ -9,10 +9,31 @@
     <body>
         <div class="main_grid">
             <div class="right_sidebar">
-                <center><h3>what's new?</h3></center>
-                <div id="rss_reader">
-
+                <div class="right_container" style="padding: 0 0 0 10px;">
+                    <h3>
+                        Pages:
+                    </h3>
+                    <h3>
+                        <a href="#ExternalLinks"><div class="navigation_button">link list</div></a>
+                    </h3>
+                    <h3>
+                        <a href="#projects"><div class="navigation_button">projects</div></a>
+                    </h3>
+                    <h3>
+                        <a href="#blog-index"></a><div class="navigation_button">blog</div></a>
+                    </h3>
+                    <h3>
+                        <a href="#recipes"><div class="navigation_button">recipes</div></a>
+                    </h3>
                 </div>
+                <div class="right_container" style= "flex: 1; overflow: hidden; height: calc(100% - 270px)">
+                    <div class="entry" style="padding: 0px;">
+                        <center><h3>what's new?</h3></center>
+                    </div>
+                    <div id="rss_reader">
+                    </div>
+                </div>
+                <div class="right_container_border"></div>
             </div>
             <div class="middle_container">
                 <div class="header">
@@ -20,13 +41,13 @@
                         <div class = "footer-content">
                             <div class="left-div">
                                 <h1>
-                                    <a href="#home">
-                                        <img src = "transtrain.webp" alt = "(insert train pic)" height="50" />
+                                    <a href="#home" class="mode_changer">
+                                        <img class="mode_changer" src = "transtrain.webp" alt = "(insert train pic)" height="50" />
                                     </a> 
                                     <a href="cat-space" class="secret">Cat</a> Space
                                 </h1>
                             </div>
-                            <div class="right-div" style="display: inline-block; width: 85px;">
+                            <div class="mode_changer" style="display: inline-block; width: 85px;">
                                 <img id="toggle-button" src="moon.png" alt="Toggle Light Mode" width="75" style="margin-left: -30px;">
                             </div>
                         </div>
@@ -42,7 +63,7 @@
                             <div class="left-div">
                                 <!--<p>left</p>-->
                             </div>
-                            <div class="center-div">
+                            <div class="center-div" style="max-height: 500px;">
                                 <!--<h5>Part of the SadGirlsClub Webring</h5>-->
                                 <h3>
                                     <img src="88x31/ubuntu-88x31.gif" alt="Ubuntu User" />
@@ -50,15 +71,7 @@
                                     <img src="88x31/rainbow.gif" alt="gay" />
                                     <img src="88x31/gimp.gif" alt="gimp user" />
                                     <img src="88x31/aeriecat.space.png" alt="aeriecat.space" title="Feel free to use">
-                                </h3>
-                                <h3>
-                                    <span class="colored-box"> |
-                                        <a href="#ExternalLinks">link list</a> |
-                                        <a href="#projects">projects</a> |
-                                        <a href="#blog-index">blog</a> |
-                                        <a href="#recipes">recipes</a> |
-                                        <a href="index.xml"><img src=https://wp-assets.rss.com/blog/wp-content/uploads/2019/10/10111557/social_style_3_rss-512-1.png height="18" style="position: relative; top: 5px;"></a>
-                                    </span>
+                                    <a href="index.xml" class="entry-link"><img src=https://wp-assets.rss.com/blog/wp-content/uploads/2019/10/10111557/social_style_3_rss-512-1.png height="31"></a>
                                 </h3>
                             </div>
                             <div class="right-div">
@@ -69,8 +82,6 @@
                 </div>
             </div>
             <div class="left_sidebar">
-                    <p>This is the left sidebar.</p>
-                    <!-- You can add content to the sidebar here -->
             </div>
         </div>
 
