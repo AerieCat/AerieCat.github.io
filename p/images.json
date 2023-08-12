@@ -1,0 +1,21 @@
+{
+    "file-1.png": {
+        "filename": "file-1.png",
+        "thumbnail":"file-1-thumbnail.png",
+        "author": "cornelious",
+        "title": "rubbies"
+    },
+    "file2.png": {
+        "filename": "file2.png",
+        "thumbnail": "file-2-thumbnail.png",
+        "author": "buttercup",
+        "title": "me when "
+    },
+    "file3.png": {
+        "filename": "file3.png",
+        "thumbnail": "file-3-thumbnail.png",
+        "author": "cream puff",
+        "title": "petties :3"
+    }
+}
+  

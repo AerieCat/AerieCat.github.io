@@ -1,0 +1,17 @@
+<body style="background-color: rgb(241, 153, 186)">
+    <h1>Image Gallery</h1>
+    <div class="gallery">
+        <button class="prev-button" onclick="changeImage(-1)">&lt;</button>
+        <div class="main-image">
+          <img src="images/image1.jpg" alt="Image">
+          <div class="image-info">
+            <p class="title">Title 1</p>
+          </div>
+        </div>
+        <button class="next-button" onclick="changeImage(1)">&gt;</button>
+      </div>
+      <div class="thumbnails" id="thumbnail-container">
+        <!-- Thumbnails will be generated dynamically by the script -->
+      </div>
+      <script src="gal.js"></script>
+</body>
