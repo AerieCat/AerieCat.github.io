@@ -214,6 +214,8 @@ iframe {
         height: 70px;
         text-align: center;
         margin-top: 10px;
+        transition: none;
+
     }
     .navigation_button_p{
         height: 50px;
