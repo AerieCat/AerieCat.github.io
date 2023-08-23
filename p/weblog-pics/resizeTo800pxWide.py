@@ -10,7 +10,7 @@ def scale_image(image_path, new_width):
 
 if __name__ == '__main__':
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    new_width = 800
+    new_width = 760
 
     for filename in os.listdir(script_dir):
         if filename.endswith('.png'):
