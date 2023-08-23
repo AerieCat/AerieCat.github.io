@@ -106,12 +106,18 @@ body {
 }
 .rss_reader{
     width: "250px";
+    overflow: auto;
 }
 .left-div, .right-div {
     text-align: center;
     padding-top: 5px;
     padding-left: 10px;
     /*background-color: rgba(120,120,120,0.5)*/
+}
+.scrolling_div{
+    width: calc(100% + 20px);
+    height: 100%;
+    overflow: auto;
 }
 h1 {
     margin-top: 0;
@@ -131,6 +137,7 @@ iframe {
 }  
 .entry {
     max-height: 150px;
+    width: 275px;
     overflow: hidden;
     border: 1px solid #ffffff;
     margin-bottom: 10px;
