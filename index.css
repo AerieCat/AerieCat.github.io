@@ -207,7 +207,9 @@ iframe {
     color: lightblue; /* Set the color for links within the quote text */
     text-decoration: none; /* Add an underline to links */
 }
-
+.quote-text a:visited {
+    color: lightblue; /* Set the color for visited links */
+  }
   .author-date {
     font-size: 14px; /* Adjust the font size as needed */
     margin-top: 0px; /* Add a bit of space above the author/date */
