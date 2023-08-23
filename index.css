@@ -192,6 +192,26 @@ iframe {
 .mobile_navigation{
     display: none;
 }
+.quote{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.quote-text {
+    font-size: 18px; /* Adjust the font size as needed */
+    font-weight: bold;
+    margin-left: 10px;
+    margin: 0; /* Remove margin around the quote text */
+    padding-bottom: 10px; /* Add some padding below the quote */
+}
+  .quote-text a {
+    color: lightblue; /* Set the color for links within the quote text */
+    text-decoration: none; /* Add an underline to links */
+}
+
+  .author-date {
+    font-size: 14px; /* Adjust the font size as needed */
+    margin-top: 0px; /* Add a bit of space above the author/date */
+}
 @media (pointer:none), (pointer:coarse) {
     iframe {
         height: 1200px;

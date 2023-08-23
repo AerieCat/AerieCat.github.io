@@ -7,6 +7,16 @@
         <language>en-us</language>
         <lastBuildDate>8 August 2023</lastBuildDate>
         <item>
+            <title>Added a "quotewall" feature</title>
+            <link>https://aeriecat.space/#p/weblog</link>
+            <pubDate>22 August 2023</pubDate>
+            <description>
+                <![CDATA[
+                    I wanted like a way to store my thoughts and get them out like a twitter thread or something, but without twitter or any opther social media. So, i made a little thought bar that loads them in from a JSON.
+                ]]>
+            </description>
+        </item>
+        <item>
             <title>Website design update</title>
             <link>https://aeriecat.space/#p/weblog</link>
             <pubDate>8 August 2023</pubDate>

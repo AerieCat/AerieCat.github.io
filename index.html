@@ -124,8 +124,56 @@
             </div>
         </div>
         <div class="left_sidebar">
+            <div class="scrolling_div">
+                <div class="entry" style="padding-top: 0px; padding-bottom: 0px;">
+                    <center>
+                        <h3>Randoms:</h3>
+                    </center>
+                </div>
+                <div id="randoms" style="
+                width: 300px; "></div>
+            </div>
+            <div class="right_container_border"></div>
         </div>
     </div>
+    <script> // quote wall
+        document.addEventListener("DOMContentLoaded", function () {
+        fetch("randoms.json")
+            .then(response => {
+            if (!response.ok) {
+                throw new Error(`Network response was not ok (${response.status} ${response.statusText})`);
+            }
+            return response.json();
+            })
+            .then(quotes => {
+            if (!Array.isArray(quotes)) {
+                throw new Error("JSON data is not an array.");
+            }
+            
+            const quoteContainer = document.getElementById("randoms");
+
+            quotes.forEach(quoteObj => {
+                const quoteDiv = document.createElement("div");
+                quoteDiv.classList.add("quote");
+
+                const quoteText = document.createElement("p");
+                quoteText.innerHTML = quoteObj.quote;
+                quoteText.classList.add("quote-text"); // Add class for styling
+                quoteDiv.appendChild(quoteText);
+
+                const authorText = document.createElement("p");
+                authorText.textContent = `- ${quoteObj.author}, ${quoteObj.date}`;
+                authorText.classList.add("author-date"); // Add class for styling
+                quoteDiv.appendChild(authorText);
+
+                quoteContainer.appendChild(quoteDiv);
+            });
+            })
+            .catch(error => {
+            console.error("Error fetching or processing JSON:", error);
+            });
+        });
+    </script>
 
     <script> //handles which html to load into the iframe based on url
         /* iframe code */
@@ -163,8 +211,7 @@
         toggleButton.addEventListener("click", toggleMode);
     </script>
 
-    <script>
-        // Change background image on load
+    <script> // Change background image on load
         document.addEventListener('DOMContentLoaded', function () {
             setTimeout(function () {
                 console.log("it do it");
@@ -179,7 +226,7 @@
         });
     </script>
 
-    <script>
+    <script> // rss feed
         const rssFeedDiv = document.getElementById('rss_reader');
 
         const rssFeedUrl = 'index.xml';
