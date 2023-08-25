@@ -1,4 +1,6 @@
 RewriteEngine On
+
+RewriteCond %{REQUEST_URI} !^/addquote\.php$
+
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^([^\.]+)$ $1.html [NC,L]
-

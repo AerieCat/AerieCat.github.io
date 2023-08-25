@@ -7,6 +7,17 @@
         <language>en-us</language>
         <lastBuildDate>8 August 2023</lastBuildDate>
         <item>
+            <title>Added user interaction! (moved hosts)</title>
+            <link>https://aeriecat.space/#p/weblog</link>
+            <pubDate>25 August 2023</pubDate>
+            <description>
+                <![CDATA[
+                    Site is no longer static. This is a seemingly minor change that required me to do a whole lot of backend work. My site was hosted on github pages and thus had to be static, but this feature broke that so i had to go get some actual web hosting.<br>
+    My site is now running on an Apache server so i can work with cool things like <i>php</i> and stuff. pls don't abuse!!! 
+                                    ]]>
+            </description>
+        </item>
+        <item>
             <title>Added a "quotewall" feature</title>
             <link>https://aeriecat.space/#p/weblog</link>
             <pubDate>22 August 2023</pubDate>

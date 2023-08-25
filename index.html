@@ -40,7 +40,8 @@
                 </h3>
             </div>
             <div class="right_container" style="flex: 1; overflow: hidden; height: calc(100% - 270px)">
-                <div class="scrolling_div">
+                <div class="scrolling_div"
+                style="height: 100%;">
                     <div class="entry" style="padding-top: 0px; padding-bottom: 0px;">
                         <center>
                             <h3>what's new?</h3>
@@ -123,17 +124,35 @@
                 </footer>
             </div>
         </div>
-        <div class="left_sidebar">
-            <div class="scrolling_div">
-                <div class="entry" style="padding-top: 0px; padding-bottom: 0px;">
-                    <center>
-                        <h3>Randoms:</h3>
-                    </center>
+        <div class="left_sidebar" style="overflow: hidden;">
+            <div class="entry" style="padding-top: 0px; padding-bottom: 0px; height:180px; max-height: 300px;">
+                <center>
+                    <p><b>add to the Quote Wall:</b></p>
+                </center>
+                <div class="form-container">
+                    <form method="post" action="addquote.php" onsubmit="submitForm();">
+                        <div class="form-field">
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" name="name">
+                        </div>
+                        <div class="form-field">
+                            <label for="quote">Quote:</label>
+                            <textarea id="quote" name="quote"></textarea>
+                        </div>
+                        <div class="form-field">
+                            <input type="submit" value="Submit Quote" class="submit-button">
+                        </div>
+                    </form>
                 </div>
-                <div id="randoms" style="
-                width: 300px; "></div>
             </div>
-            <div class="right_container_border"></div>
+            <div class="scrolling_div">
+                <div id="randoms" style="
+                width: 300px; 
+                height: auto;"></div>
+            </div>
+            <div class="right_container_border">
+            </div>
+            
         </div>
     </div>
     <script> // quote wall
@@ -228,6 +247,12 @@
                 }
             }, 100);
         });
+    </script>
+
+    <script> //reload javascript on form submit
+    function submitForm() {
+        window.location.reload();
+    }
     </script>
 
     <script> // rss feed
