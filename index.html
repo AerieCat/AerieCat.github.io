@@ -96,7 +96,7 @@
                                 <p class="navigation_button_p">recipes</p>
                             </div>
                         </a>
-                    </div>
+                    </div>b
                 </header>
             </div>
             <div class="body">
@@ -199,8 +199,23 @@
               console.error("Error fetching or processing JSON:", error);
             });
         });
-      </script>
+    </script>
       
+    <script>
+        // Function to fetch and update the view count
+        function updateViewCount() {
+            fetch('counter.php')
+                .then(response => response.text())
+                .then(count => {
+                    // Update the count on the webpage
+                    document.getElementById('viewCount').innerText = count;
+                })
+                .catch(error => console.error('Error fetching view count:', error));
+        }
+
+        // Run the function when the page loads
+        window.addEventListener('load', updateViewCount);
+    </script>
 
     <script> //handles which html to load into the iframe based on url
         /* iframe code */
