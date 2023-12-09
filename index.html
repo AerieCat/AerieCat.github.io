@@ -129,33 +129,38 @@
                 </footer>
             </div>
         </div>
-        <div class="left_sidebar" style="overflow: hidden;">
-            <div class="entry" style="padding-top: 0px; padding-bottom: 0px; height:180px; max-height: 300px;">
-                <center>
-                    <p><b>Guest Book:</b></p>
-                </center>
-                <div class="form-container">
-                    <form method="post" action="addquote.php" onsubmit="submitForm();">
-                        <div class="form-field">
-                            <label for="name">Name:</label>
-                            <input type="text" id="name" name="name">
-                        </div>
-                        <div class="form-field">
-                            <label for="quote">Message:</label>
-                            <textarea id="quote" name="quote"></textarea>
-                        </div>
-                        <div class="form-field">
-                            <input type="submit" value="Submit Quote" class="submit-button">
-                        </div>
-                    </form>
+        <div>
+            <div class="left_sidebar" style="overflow: hidden; height: 700px">
+                <div class="entry" style="padding-top: 0px; padding-bottom: 0px; height:180px; max-height: 300px;">
+                    <center>
+                        <p><b>Guest Book:</b></p>
+                    </center>
+                    <div class="form-container">
+                        <form method="post" action="addquote.php" onsubmit="submitForm();">
+                            <div class="form-field">
+                                <label for="name">Name:</label>
+                                <input type="text" id="name" name="name">
+                            </div>
+                            <div class="form-field">
+                                <label for="quote">Message:</label>
+                                <textarea id="quote" name="quote"></textarea>
+                            </div>
+                            <div class="form-field">
+                                <input type="submit" value="Submit Quote" class="submit-button">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="scrolling_div">
+                    <div id="randoms" style="
+                    width: 300px; 
+                    height: auto;"></div>
+                </div>
+                <div class="right_container_border">
                 </div>
             </div>
-            <div class="scrolling_div">
-                <div id="randoms" style="
-                width: 300px; 
-                height: auto;"></div>
-            </div>
-            <div class="right_container_border">
+            <div class="left_sidebar" style="overflow: hidden; height: 230px">
+                <h3>coming soon OwO</h3>
             </div>
         </div>
     </div>
