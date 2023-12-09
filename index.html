@@ -66,7 +66,7 @@
                                 <a href="cat-space" class="secret">Cat</a> Space
                                 <p id="page-counter" style="font-family: Arial, sans-serif;
                                 font-size: 16px;">
-                                    Page Views: <?php include 'pageviews.php'; ?>
+                                    Page Views: 
                                 </p>
                             </h1>
                         </div>
@@ -208,7 +208,7 @@
                 .then(response => response.text())
                 .then(count => {
                     // Update the count on the webpage
-                    document.getElementById('viewCount').innerText = count;
+                    document.getElementById('page-counter').innerText = `Page Views: ${count}`;
                 })
                 .catch(error => console.error('Error fetching view count:', error));
         }
