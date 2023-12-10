@@ -29,6 +29,10 @@
 
                     const quoteDiv = document.createElement("div");
                     quoteDiv.classList.add("quote");
+
+                    const TitleText = document.createElement("h3");
+                    authorText.textContent = `${quoteObj.title}`;
+                    quoteDiv.appendChild(TitleText);
       
                     const quoteText = document.createElement("p");
                     quoteText.innerHTML = quoteObj.content;
@@ -36,7 +40,7 @@
                     quoteDiv.appendChild(quoteText);
       
                     const authorText = document.createElement("p");
-                    authorText.textContent = `${quoteObj.date}`;
+                    authorText.textContent = `- ${quoteObj.date}`;
                     quoteDiv.appendChild(authorText);
       
                     quoteContainer.appendChild(quoteDiv);
