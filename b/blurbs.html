@@ -8,6 +8,12 @@
 
     </div>
 
+    <style>
+    .quote{
+        border: 2px;
+    }
+    </style>
+
     <script> // quote wall
         document.addEventListener("DOMContentLoaded", function () {
           fetch("blurbs.json")
@@ -36,7 +42,6 @@
       
                     const quoteText = document.createElement("p");
                     quoteText.innerHTML = quoteObj.content;
-                    quoteText.classList.add("quote-text"); // Add class for styling
                     quoteDiv.appendChild(quoteText);
       
                     const authorText = document.createElement("p");
