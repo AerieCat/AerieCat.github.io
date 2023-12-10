@@ -1,0 +1,51 @@
+<body style="background-color: rgb(241, 153, 186)">
+    <a href="../#blog-index" target="_parent">back to Index</a>
+
+    <h3>Blurbs!</h3>
+    <p>This is where i'll put litle things that i want to put out there.</p>
+
+    <div id="blurb-div">
+
+    </div>
+
+    <script> // quote wall
+        document.addEventListener("DOMContentLoaded", function () {
+          fetch("blurbs.json")
+            .then(response => {
+              if (!response.ok) {
+                throw new Error(`Network response was not ok (${response.status} ${response.statusText})`);
+              }
+              return response.json();
+            })
+            .then(quotes => {
+              if (!Array.isArray(quotes)) {
+                throw new Error("JSON data is not an array.");
+              }
+      
+              const quoteContainer = document.getElementById("blurbs-div");
+      
+              // Loop through the quotes array in reverse
+              for (let i = quotes.length - 1; i >= 0; i--) {
+                const quoteObj = quotes[i];
+      
+                const quoteDiv = document.createElement("div");
+                quoteDiv.classList.add("quote");
+      
+                const quoteText = document.createElement("p");
+                quoteText.innerHTML = quoteObj.content;
+                quoteText.classList.add("quote-text"); // Add class for styling
+                quoteDiv.appendChild(quoteText);
+      
+                const authorText = document.createElement("p");
+                authorText.textContent = `${quoteObj.date}`;
+                quoteDiv.appendChild(authorText);
+      
+                quoteContainer.appendChild(quoteDiv);
+              }
+            })
+            .catch(error => {
+              console.error("Error fetching or processing JSON:", error);
+            });
+        });
+    </script>
+</body>
