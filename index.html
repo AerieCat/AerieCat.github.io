@@ -169,7 +169,8 @@
             </div>
         </div>
     </div>
-    <script> // quote wall
+    <script>
+        // quote wall
         document.addEventListener("DOMContentLoaded", function () {
           fetch("randoms.json")
             .then(response => {
@@ -179,13 +180,14 @@
               return response.json();
             })
             .then(quotes => {
+              console.log("Fetched quotes:", quotes);
+      
               if (!Array.isArray(quotes)) {
                 throw new Error("JSON data is not an array.");
               }
       
               const quoteContainer = document.getElementById("randoms");
       
-              // Loop through the quotes array in reverse
               for (let i = quotes.length - 1; i >= 0; i--) {
                 const quoteObj = quotes[i];
       
@@ -194,12 +196,12 @@
       
                 const quoteText = document.createElement("p");
                 quoteText.innerHTML = quoteObj.quote;
-                quoteText.classList.add("quote-text"); // Add class for styling
+                quoteText.classList.add("quote-text");
                 quoteDiv.appendChild(quoteText);
       
                 const authorText = document.createElement("p");
                 authorText.textContent = `- ${quoteObj.author}, ${quoteObj.date}`;
-                authorText.classList.add("author-date"); // Add class for styling
+                authorText.classList.add("author-date");
                 quoteDiv.appendChild(authorText);
       
                 quoteContainer.appendChild(quoteDiv);
@@ -209,7 +211,8 @@
               console.error("Error fetching or processing JSON:", error);
             });
         });
-    </script>
+      </script>
+      
       
     <script>
         // Function to fetch and update the view count
