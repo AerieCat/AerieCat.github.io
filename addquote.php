@@ -11,12 +11,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         '/\bcrypto\b/i',
         '/\bmoney\b/i',
         '/\bshops\b/i',
+        '/\bemail\b/i',
+        '/\bskype\b/i',
+        '/\bbuy\b/i',
+        '/\bUSD\b/i',
         '/\bhttp(s)?:\/\/\S+/i',  // Check for any links
     );
 
     foreach ($undesiredPatterns as $pattern) {
         if (preg_match($pattern, $quote)) {
-            echo "Your message contains undesired content. Please remove it and try again.";
+            echo "Stop advertising stuff in my guestbook >:c (sorry legitimate people trying to have fun, people kept putting crypto stuff in here)";
             exit;
         }
     }
