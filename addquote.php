@@ -6,6 +6,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $quote = $_POST["quote"];
     $date = date("mdy"); // Get current date in format MMDDYY
 
+    $undesiredPatterns = array(
+        '/\bbitcoin\b/i',
+        '/\bcrypto\b/i',
+        '/\bmoney\b/i',
+        '/\bshops\b/i',
+        '/\bhttp(s)?:\/\/\S+/i',  // Check for any links
+    );
+
+    foreach ($undesiredPatterns as $pattern) {
+        if (preg_match($pattern, $quote)) {
+            echo "Your message contains undesired content. Please remove it and try again.";
+            exit;
+        }
+    }
+
     $entry = array(
         "quote" => $quote,
         "author" => $name,
@@ -23,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $userKey = md5($_SERVER['REMOTE_ADDR']); // You can change this identifier if needed
 
     $rateLimitFile = "ratelimit.txt";
-    $rateLimitSeconds = 60; // 1 minute
+    $rateLimitSeconds = 300; // 5 minutes
 
     if (file_exists($rateLimitFile)) {
         $rateLimitData = json_decode(file_get_contents($rateLimitFile), true);
