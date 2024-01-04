@@ -18,6 +18,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         '/\bSEO\b/i',
         '/\bleads\b/i',
         '/\b@\b/i',
+        '/\bwww\b/i',
+        '/\bfounder\b/i',
+        '/\bCEO\b/i',
         '/\bhttp(s)?:\/\/\S+/i',  // Check for any links
     );
 
