@@ -15,6 +15,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         '/\bskype\b/i',
         '/\bbuy\b/i',
         '/\bUSD\b/i',
+        '/\bSEO\b/i',
+        '/\bleads\b/i',
+        '/\b@\b/i',
         '/\bhttp(s)?:\/\/\S+/i',  // Check for any links
     );
 
