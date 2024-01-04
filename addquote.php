@@ -6,6 +6,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $quote = $_POST["quote"];
     $date = date("mdy"); // Get current date in format MMDDYY
 
+    if (strlen($quote) > 50) {
+        echo "Message must be shorter, stop copy pasting your advertising in here!";
+        exit;
+    }
+
     $undesiredPatterns = array(
         '/\bbitcoin\b/i',
         '/\bcrypto\b/i',
