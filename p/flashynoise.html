@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pink Noise Visualization</title>
+  <style>
+    #pauseIndicator {
+      margin-top: 10px;
+      font-size: 64px;
+    }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      background-color: #ffffff;
+      flex-direction: column;
+      align-items: bottom;
+      justify-content: bottom;
+    }
+
+    #speedSlider {
+      width: 80%;
+      max-width: 400px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <audio id="audioElement" controls style="display: none;"></audio>
+  <input type="range" min="10" max="500" value="500" step="5" id="speedSlider" oninput="updateSpeed(this.value)">
+  <p id="speedLabel">Speed: 500 ms</p>
+  <p id="pauseIndicator"></p>
+  <button id="startButton">Start</button>
+
+  <script>
+    const audioElement = document.getElementById('audioElement');
+    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    const analyser = audioContext.createAnalyser();
+    const source = audioContext.createMediaElementSource(audioElement);
+    let pinkNoiseNode; // Declare the variable to hold the pink noise node
+    let userInteracted = false;
+    let flashingInterval;
+
+    source.connect(analyser);
+    analyser.connect(audioContext.destination);
+
+    analyser.fftSize = 256;
+    const bufferLength = analyser.frequencyBinCount;
+    const dataArray = new Uint8Array(bufferLength);
+
+    function analyzeAudio() {
+      analyser.getByteFrequencyData(dataArray);
+
+      const lowFrequencyEnergy = dataArray.slice(0, 20).reduce((acc, val) => acc + val, 0);
+      const highFrequencyEnergy = dataArray.slice(150, 200).reduce((acc, val) => acc + val, 0);
+
+      const backgroundColor = `rgb(${lowFrequencyEnergy}, ${highFrequencyEnergy}, 100)`;
+      document.body.style.backgroundColor = backgroundColor;
+
+      // Generate pink noise based on the background color
+      generatePinkNoise(lowFrequencyEnergy, highFrequencyEnergy);
+
+      requestAnimationFrame(analyzeAudio);
+    }
+
+    function generatePinkNoise(lowFrequencyEnergy, highFrequencyEnergy) {
+      const bufferSize = 4096;
+      const noiseBuffer = new Float32Array(bufferSize);
+      let b0, b1, b2, b3, b4, b5, b6;
+      b0 = b1 = b2 = b3 = b4 = b5 = b6 = 0.0;
+
+      for (let i = 0; i < bufferSize; i++) {
+        const white = Math.random() * 2 - 1;
+        b0 = 0.99886 * b0 + white * 0.0555179;
+        b1 = 0.99332 * b1 + white * 0.0750759;
+        b2 = 0.96900 * b2 + white * 0.1538520;
+        b3 = 0.86650 * b3 + white * 0.3104856;
+        b4 = 0.55000 * b4 + white * 0.5329522;
+        b5 = -0.7616 * b5 - white * 0.0168980;
+        noiseBuffer[i] = b0 + b1 + b2 + b3 + b4 + b5 + b6 + white * 0.5362;
+        noiseBuffer[i] *= 0.11;
+        b6 = white * 0.115926;
+      }
+
+      if (pinkNoiseNode) {
+        pinkNoiseNode.disconnect();
+        pinkNoiseNode.stop();
+      }
+
+      pinkNoiseNode = audioContext.createBufferSource();
+      const buffer = audioContext.createBuffer(1, bufferSize, audioContext.sampleRate);
+      buffer.getChannelData(0).set(noiseBuffer);
+      pinkNoiseNode.buffer = buffer;
+      pinkNoiseNode.loop = true;
+      pinkNoiseNode.connect(audioContext.destination);
+      pinkNoiseNode.start();
+    }
+
+    let paused = true;
+
+    function getRandomColor(offset = 0) {
+      const letters = '0123456789ABCDEF';
+      let color = '#';
+      for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    }
+
+
+    function getRandomOffset() {
+      return (Math.random() * 40) +160;
+    }
+
+    function flashRandomColor() {
+      console.log(`pause: ${paused}`)
+      if (!paused) {
+        const currentColor = document.body.style.backgroundColor || getRandomColor();
+        const offset = getRandomOffset();
+        document.body.style.backgroundColor = getRandomColor(offset);
+        console.log(currentColor, offset, getRandomColor(offset))
+
+        const speed = document.getElementById('speedSlider').value;
+        const randomTime = speed;
+        setTimeout(flashRandomColor, randomTime);
+      }
+    }
+
+    function updateSpeed(value) {
+      document.getElementById('speedLabel').innerText = `Speed: ${value} ms`;
+    }
+
+    function updatePauseIndicator() {
+      const pauseIndicator = document.getElementById('pauseIndicator');
+      pauseIndicator.innerText = paused ? '⏸' : '';
+    }
+
+    document.getElementById('startButton').addEventListener('click', handleUserInteraction);
+
+    function handleUserInteraction() {
+      if (!userInteracted) {
+        userInteracted = true;
+        document.getElementById('startButton').style.display = 'none';
+        audioContext.resume().then(() => {
+          analyzeAudio();
+          startFlashing();
+        });
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      analyzeAudio();
+      flashRandomColor();
+    });
+
+    document.addEventListener('keydown', function (event) {
+      const slider = document.getElementById('speedSlider');
+      let currentValue = parseInt(slider.value, 10);
+
+      if (event.key === 'ArrowUp' && currentValue < parseInt(slider.max, 10)) {
+        currentValue += 5;
+      } else if (event.key === 'ArrowDown' && currentValue > parseInt(slider.min, 10)) {
+        currentValue -= 5;
+      } else if (event.key === ' ') {
+        paused = !paused;
+        updatePauseIndicator();
+        if (!paused) {
+          analyzeAudio();
+          flashRandomColor();;
+        }
+      }
+
+      slider.value = currentValue;
+      updateSpeed(currentValue);
+    });
+
+  </script>
+</body>
+</html>

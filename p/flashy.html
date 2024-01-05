@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color Flash</title>
+  <style>
+    #pauseIndicator {
+      margin-top: 10px;
+      font-size: 64px;
+    }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      background-color: #ffffff;
+      flex-direction: column;
+      align-items: bottom;
+      justify-content: bottom;
+    }
+
+    #speedSlider {
+      width: 80%;
+      max-width: 400px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <script>
+    let paused = false;
+
+    function getRandomColor() {
+      const letters = '0123456789ABCDEF';
+      let color = '#';
+      for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    }
+
+    function getRandomOffset() {
+      return (Math.random() * 40) +160;
+    }
+
+    function flashRandomColor() {
+      if (!paused) {
+        const currentColor = document.body.style.backgroundColor || getRandomColor();
+        const offset = getRandomOffset();
+        document.body.style.backgroundColor = getRandomColor(offset);
+
+        const speed = document.getElementById('speedSlider').value;
+        const randomTime = speed;
+        setTimeout(flashRandomColor, randomTime);
+      }
+    }
+
+    function updateSpeed(value) {
+      document.getElementById('speedLabel').innerText = `Speed: ${value} ms`;
+      // flashRandomColor(); // Restart flashing with the updated speed
+    }
+
+    document.addEventListener('keydown', function (event) {
+      const slider = document.getElementById('speedSlider');
+      let currentValue = parseInt(slider.value, 10);
+
+      if (event.key === 'ArrowUp' && currentValue < parseInt(slider.max, 10)) {
+        currentValue += 5;
+      } else if (event.key === 'ArrowDown' && currentValue > parseInt(slider.min, 10)) {
+        currentValue -= 5;
+      } else if (event.key === ' ') { // Space key
+        paused = !paused;
+        if (!paused) {
+          flashRandomColor(); // Resume flashing when unpaused
+        }
+        updatePauseIndicator();
+      }
+
+      function updatePauseIndicator() {
+      const pauseIndicator = document.getElementById('pauseIndicator');
+      pauseIndicator.innerText = paused ? '⏸' : '';
+    }
+
+      slider.value = currentValue;
+      updateSpeed(currentValue);
+    });
+
+    // Start the flashing when the page loads
+    flashRandomColor();
+  </script>
+
+  <input type="range" min="10" max="500" value="500" step="5" id="speedSlider" oninput="updateSpeed(this.value)">
+  <p id="speedLabel">Speed: 500 ms</p>
+  <p id="pauseIndicator" ></p>
+</body>
+</html>
