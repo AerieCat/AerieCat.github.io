@@ -29,6 +29,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         '/\bhttp(s)?:\/\/\S+/i',  // Check for any links
     );
 
+    if (!preg_match('/^[a-zA-Z0-9\s\.,!?\'"()-]*$/', $quote)) {
+        echo "sorry, only english allowed, some bozo kept adding advertisements in spanish and idk how to filter other languages";
+        exit;
+    }
+
     foreach ($undesiredPatterns as $pattern) {
         if (preg_match($pattern, $quote)) {
             echo "Stop advertising stuff in my guestbook >:c (sorry legitimate people trying to have fun, people kept putting crypto stuff in here)";
