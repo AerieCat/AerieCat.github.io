@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         '/\bhttp(s)?:\/\/\S+/i',  // Check for any links
     );
 
-    if (!preg_match('/^[a-zA-Z0-9\s\.,!?\'"()-]*$/', $quote)) {
+    if (!preg_match('/^[a-zA-Z0-9\s\.,!?\'"()-:;]*$/', $quote)) {
         echo "sorry, only english allowed, some bozo kept adding advertisements in spanish and idk how to filter other languages";
         exit;
     }

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: rgb(241, 153, 186);
+        }
+
+        #cats {
+            width: 800px;
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .cat-image {
+            width: 128px;
+            height: 128px;
+            margin-bottom: 10px;
+        }
+
+        .copy-button {
+            display: block;
+            margin-top: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <a href="../#p/cat_stickers" target="_parent">back to blog post</a>
+    <div id="cats"></div>
+
+    <script>
+        // Function to create cat images and buttons
+        function createCatImages() {
+            const catContainer = document.getElementById('cats');
+
+            // Replace 'files/kitty' with your actual path
+            const imagePath = 'http://aeriecat.space/b/files/kitty';
+
+            for (let i = 1; i <= 71; i++) { // Assuming you have 12 images
+                const catImage = document.createElement('img');
+                catImage.src = `${imagePath}/cat${i}.png`; // Replace with your image names
+                catImage.alt = `Cat ${i}`;
+                catImage.className = 'cat-image';
+
+                const copyButton = document.createElement('button');
+                copyButton.textContent = 'Copy Location';
+                copyButton.className = 'copy-button';
+
+                copyButton.addEventListener('click', function() {
+                    // Copy image location to clipboard
+                    navigator.clipboard.writeText(`${imagePath}/cat${i}.png`);
+                    alert('Image location copied to clipboard!');
+                });
+
+                const catDiv = document.createElement('div');
+                catDiv.appendChild(catImage);
+                catDiv.appendChild(copyButton);
+
+                catContainer.appendChild(catDiv);
+            }
+        }
+
+        // Call the function to create cat images on page load
+        window.onload = createCatImages;
+    </script>
+</body>
+</html>

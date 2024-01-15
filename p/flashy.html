@@ -42,7 +42,7 @@
     }
 
     function getRandomOffset() {
-      return (Math.random() * 40) +160;
+      return (Math.random() * 40) + 160;
     }
 
     function flashRandomColor() {
@@ -62,6 +62,11 @@
       // flashRandomColor(); // Restart flashing with the updated speed
     }
 
+    function updatePauseIndicator() {
+      const pauseIndicator = document.getElementById('pauseIndicator');
+      pauseIndicator.innerText = paused ? '⏸' : '';
+    }
+
     document.addEventListener('keydown', function (event) {
       const slider = document.getElementById('speedSlider');
       let currentValue = parseInt(slider.value, 10);
@@ -78,13 +83,19 @@
         updatePauseIndicator();
       }
 
-      function updatePauseIndicator() {
-      const pauseIndicator = document.getElementById('pauseIndicator');
-      pauseIndicator.innerText = paused ? '⏸' : '';
-    }
-
       slider.value = currentValue;
       updateSpeed(currentValue);
+    });
+
+    document.addEventListener('click', function (event) {
+      const isSpeedSlider = event.target.id === 'speedSlider';
+      if (!isSpeedSlider) {
+        paused = !paused;
+        if (!paused) {
+          flashRandomColor(); // Resume flashing when unpaused
+        }
+        updatePauseIndicator();
+      }
     });
 
     // Start the flashing when the page loads
