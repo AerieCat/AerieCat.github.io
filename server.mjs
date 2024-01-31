@@ -34,9 +34,11 @@ app.get('/test', (req, res) => {
   res.send('This is a test endpoint!');
 });
 
+const http = require('http'); // Require the 'http' module
+
 app.get('/lgbt-rights/:state', (req, res) => {
   const state = req.params.state.replace(/ /g, '_');
-  const url = `https://en.wikipedia.org/wiki/LGBT_rights_in_${state}#Summary_table`;
+  const url = `http://en.wikipedia.org/wiki/LGBT_rights_in_${state}#Summary_table`; // Use 'http' instead of 'https'
   
   // Perform HTTP GET request
   const request = http.get(url, (response) => {
@@ -50,9 +52,8 @@ app.get('/lgbt-rights/:state', (req, res) => {
   });
 
   request.on('error', (error) => {
-    const errorMessage = `Error fetching data: ${error.message}`;
-    logger.error(errorMessage);
-    const errorHTML = formatErrorHTML(errorMessage);
+    console.error('Error fetching data:', error);
+    const errorHTML = formatErrorHTML(`Error fetching data: ${error.message}`);
     res.status(500).send(errorHTML);
   });
 

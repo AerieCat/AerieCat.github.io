@@ -3,3 +3,4 @@ php8.1 for all the php stuff
 npm running for server.js
 i gotta do `node server.mjs` to start the backend
 i got nginx running the website
+i got npm's winston package for error logging
