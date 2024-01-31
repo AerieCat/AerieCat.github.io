@@ -1,5 +1,5 @@
 I got uhhh
 php8.1 for all the php stuff
 npm running for server.js
-i gotta do `node server.cjs` to start the backend
+i gotta do `node server.mjs` to start the backend
 i got nginx running the website

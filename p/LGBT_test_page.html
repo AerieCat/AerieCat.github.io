@@ -42,10 +42,9 @@ function createButtons() {
 
 // Function to fetch and display chart for a specific state
 function fetchChartForState(state) {
-  // Construct URL for the given state
-  const stateUrl = `https://en.wikipedia.org/wiki/LGBT_rights_in_${state}#Summary_table`;
-  
-  // Fetch chart data for the state
+  const serverUrl = 'https://aeriecat.space/lgbt-rights/';
+  const stateUrl = `${serverUrl}${state.toLowerCase()}`;
+
   fetch(stateUrl)
     .then(response => {
       if (!response.ok) {
@@ -54,18 +53,8 @@ function fetchChartForState(state) {
       return response.text();
     })
     .then(html => {
-      // Parse and extract chart data from HTML
-      const parser = new DOMParser();
-      const doc = parser.parseFromString(html, 'text/html');
-      const table = doc.querySelector('.wikitable'); // Assuming the chart is within a table with class 'wikitable'
       const chartContainer = document.getElementById('chart-container');
-      chartContainer.innerHTML = '';
-      if (table) {
-        // Display the chart in the container
-        chartContainer.appendChild(table);
-      } else {
-        chartContainer.textContent = 'Chart Data not found';
-      }
+      chartContainer.innerHTML = html;
     })
     .catch(error => {
       console.error(`Error fetching chart for ${state}:`, error);
