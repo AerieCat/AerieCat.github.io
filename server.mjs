@@ -1,11 +1,18 @@
 import express from 'express';
 import http from 'http';
+import winston from 'winston';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.get('/test', (req, res) => {
-  res.send('This is a test endpoint!');
+// Configure Winston logger
+const logger = winston.createLogger({
+  level: 'error',
+  format: winston.format.json(),
+  transports: [
+    new winston.transports.File({ filename: 'error.log', level: 'error' }),
+    new winston.transports.Console({ format: winston.format.simple() })
+  ]
 });
 
 // Function to format error message as HTML
@@ -23,6 +30,10 @@ function formatErrorHTML(errorMessage) {
   `;
 }
 
+app.get('/test', (req, res) => {
+  res.send('This is a test endpoint!');
+});
+
 app.get('/lgbt-rights/:state', (req, res) => {
   const state = req.params.state.replace(/ /g, '_');
   const url = `https://en.wikipedia.org/wiki/LGBT_rights_in_${state}#Summary_table`;
@@ -39,8 +50,9 @@ app.get('/lgbt-rights/:state', (req, res) => {
   });
 
   request.on('error', (error) => {
-    console.error('Error fetching data:', error);
-    const errorHTML = formatErrorHTML(`Error fetching data: ${error.message}`);
+    const errorMessage = `Error fetching data: ${error.message}`;
+    logger.error(errorMessage);
+    const errorHTML = formatErrorHTML(errorMessage);
     res.status(500).send(errorHTML);
   });
 
