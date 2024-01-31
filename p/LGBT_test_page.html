@@ -43,7 +43,7 @@ function createButtons() {
 // Function to fetch and display chart for a specific state
 function fetchChartForState(state) {
   const serverUrl = 'https://aeriecat.space/lgbt-rights/';
-  const stateUrl = `${serverUrl}${state.toLowerCase()}`;
+  const stateUrl = `${serverUrl}${state}`;
 
   fetch(stateUrl)
     .then(response => {
