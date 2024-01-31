@@ -4,6 +4,10 @@ import http from 'http';
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+app.get('/test', (req, res) => {
+  res.send('This is a test endpoint!');
+});
+
 // Function to format error message as HTML
 function formatErrorHTML(errorMessage) {
   return `
