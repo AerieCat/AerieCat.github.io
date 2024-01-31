@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LGBT Rights in US States</title>
+<style>
+  .chart-container {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+  }
+</style>
+</head>
+<body>
+
+<div id="buttons"></div>
+<div id="chart-container"></div>
+
+<script>
+// Array of US states
+const states = [
+  'Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia',
+  'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland',
+  'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire',
+  'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania',
+  'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington',
+  'West Virginia', 'Wisconsin', 'Wyoming'
+];
+
+// Function to create buttons for each state
+function createButtons() {
+  const buttonsContainer = document.getElementById('buttons');
+
+  states.forEach(state => {
+    const button = document.createElement('button');
+    button.textContent = state;
+    button.addEventListener('click', () => fetchChartForState(state));
+    buttonsContainer.appendChild(button);
+  });
+}
+
+// Function to fetch and display chart for a specific state
+function fetchChartForState(state) {
+  // Construct URL for the given state
+  const stateUrl = `https://en.wikipedia.org/wiki/LGBT_rights_in_${state}#Summary_table`;
+  
+  // Fetch chart data for the state
+  fetch(stateUrl)
+    .then(response => response.text())
+    .then(html => {
+      // Parse and extract chart data from HTML
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(html, 'text/html');
+      const table = doc.querySelector('.wikitable'); // Assuming the chart is within a table with class 'wikitable'
+      const chartContainer = document.getElementById('chart-container');
+      chartContainer.innerHTML = '';
+      if (table) {
+        // Display the chart in the container
+        chartContainer.appendChild(table);
+      } else {
+        chartContainer.textContent = 'Chart Data not found';
+      }
+    })
+    .catch(error => {
+      console.error(`Error fetching chart for ${state}:`, error);
+    });
+}
+
+// Create buttons for each state
+createButtons();
+</script>
+
+</body>
+</html>
