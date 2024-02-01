@@ -8,7 +8,7 @@
         <lastBuildDate>9 December 2023</lastBuildDate>
         <item>
             <title>Created a little scraper</title>
-            <link>https://aeriecat.space/https://aeriecat.space/#p/LGBT_rights_per_state</link>
+            <link>https://aeriecat.space/#p/LGBT_rights_per_state</link>
             <pubDate>31 January 2024</pubDate>
             <description>
                 <![CDATA[I added a little wikipedia scraper to a page because i often find myself comparing the rights in different states when im traveling. This made me create a server to process requests and stuff. The website now has a propper(ish) backend]]>
