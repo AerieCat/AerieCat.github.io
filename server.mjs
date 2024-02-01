@@ -48,20 +48,28 @@ app.get('/lgbt-rights/:state', (req, res) => {
       html += chunk;
     });
     response.on('end', () => {
-      // Find the start and end indices of the summary chart using a more specific pattern
+      // Find the start index of the summary table
       const startIndex = html.indexOf('<span class="mw-headline" id="Summary_table">Summary table</span>');
-      const endIndex = html.indexOf('<span class="mw-headline" id="See_also">See also</span>');
-      if (startIndex === -1 || endIndex === -1) {
-        // If summary chart not found, send error response
-        const errorMessage = 'Summary chart not found';
+      if (startIndex === -1) {
+        // If summary table not found, send error response
+        const errorMessage = 'Summary table not found';
         console.error(errorMessage);
         const errorHTML = formatErrorHTML(errorMessage);
         res.status(500).send(errorHTML);
         return;
       }
-      // Extract the summary chart HTML
-      const summaryChart = html.substring(startIndex, endIndex);
-      // Send the extracted summary chart as the response
+
+      // Find the end index of the next "</table>" after the start index of the summary table
+      const endIndex = html.indexOf('</table>', startIndex);
+      if (endIndex === -1) {
+        // If end of table not found, send error response
+        const errorMessage = 'End of table not found';
+        console.error(errorMessage);
+        const errorHTML = formatErrorHTML(errorMessage);
+        res.status(500).send(errorHTML);
+        return;
+      }
+
       res.send(summaryChart);
     });
   });
