@@ -70,6 +70,10 @@ app.get('/lgbt-rights/:state', (req, res) => {
         return;
       }
 
+      // Extract the HTML section between the summary table and the next "</table>"
+      const summaryChart = html.substring(startIndex, endIndex + '</table>'.length);
+
+      // Send the extracted HTML section as the response
       res.send(summaryChart);
     });
   });
