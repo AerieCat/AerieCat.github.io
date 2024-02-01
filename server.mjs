@@ -36,9 +36,12 @@ app.get('/test', (req, res) => {
 
 app.get('/lgbt-rights/:state', (req, res) => {
   let state = req.params.state.replace(/ /g, '_');
+  
+  // Append "_U.S._state" if the state is "Georgia"
   if (state.toLowerCase() === 'georgia') {
     state += '_(U.S._state)';
   }
+
   const url = `https://en.wikipedia.org/wiki/LGBT_rights_in_${state}`;
 
   // Log the constructed URL for debugging
@@ -51,18 +54,22 @@ app.get('/lgbt-rights/:state', (req, res) => {
       html += chunk;
     });
     response.on('end', () => {
-      // Find the start index of the summary table
-      const startIndex = html.indexOf('<span class="mw-headline" id="Summary_table">Summary table</span>');
+      // Find the start index of the summary table or summary section
+      let startIndex = html.indexOf('<span class="mw-headline" id="Summary_table">Summary table</span>');
       if (startIndex === -1) {
-        // If summary table not found, send error response
-        const errorMessage = 'Summary table not found';
-        console.error(errorMessage);
-        const errorHTML = formatErrorHTML(errorMessage);
-        res.status(500).send(errorHTML);
-        return;
+        // If summary table not found, check for summary section
+        startIndex = html.indexOf('<span class="mw-headline" id="Summary">Summary</span>');
+        if (startIndex === -1) {
+          // If summary section not found, send error response
+          const errorMessage = 'Summary section not found';
+          console.error(errorMessage);
+          const errorHTML = formatErrorHTML(errorMessage);
+          res.status(500).send(errorHTML);
+          return;
+        }
       }
 
-      // Find the end index of the next "</table>" after the start index of the summary table
+      // Find the end index of the next "</table>" after the start index of the summary table or summary section
       const endIndex = html.indexOf('</table>', startIndex);
       if (endIndex === -1) {
         // If end of table not found, send error response
@@ -73,7 +80,7 @@ app.get('/lgbt-rights/:state', (req, res) => {
         return;
       }
 
-      // Extract the HTML section between the summary table and the next "</table>"
+      // Extract the HTML section between the summary table or summary section and the next "</table>"
       const summaryChart = html.substring(startIndex, endIndex + '</table>'.length);
 
       // Send the extracted HTML section as the response
@@ -90,6 +97,7 @@ app.get('/lgbt-rights/:state', (req, res) => {
 
   request.end();
 });
+
 
 
 app.listen(PORT, () => {
