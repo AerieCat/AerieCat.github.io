@@ -1,5 +1,5 @@
 import express from 'express';
-import http from 'http';
+import http from 'http'; // Importing http module using 'import' syntax
 import winston from 'winston';
 
 const app = express();
@@ -14,7 +14,6 @@ const logger = winston.createLogger({
     new winston.transports.Console({ format: winston.format.simple() })
   ]
 });
-
 
 // Function to format error message as HTML
 function formatErrorHTML(errorMessage) {
@@ -34,8 +33,6 @@ function formatErrorHTML(errorMessage) {
 app.get('/test', (req, res) => {
   res.send('This is a test endpoint!');
 });
-
-const http = require('http'); // Require the 'http' module
 
 app.get('/lgbt-rights/:state', (req, res) => {
   const state = req.params.state.replace(/ /g, '_');
