@@ -1,5 +1,5 @@
 import express from 'express';
-import https from 'https'; // Import the 'https' module
+import https from 'https';
 import winston from 'winston';
 
 const app = express();
@@ -36,19 +36,33 @@ app.get('/test', (req, res) => {
 
 app.get('/lgbt-rights/:state', (req, res) => {
   const state = req.params.state.replace(/ /g, '_');
-  const url = `https://en.wikipedia.org/wiki/LGBT_rights_in_${state}#Summary_table`; // Use 'https'
+  const url = `https://en.wikipedia.org/wiki/LGBT_rights_in_${state}`;
 
   // Log the constructed URL for debugging
   console.log('Fetching data from:', url);
-  
-  // Perform HTTPS GET request using the 'https' module
+
+  // Perform HTTPS GET request
   const request = https.get(url, (response) => {
     let html = '';
     response.on('data', (chunk) => {
       html += chunk;
     });
     response.on('end', () => {
-      res.send(html);
+      // Find the start and end indices of the summary chart
+      const startIndex = html.indexOf('<table class="wikitable" style="text-align:center;">');
+      const endIndex = html.indexOf('</table>', startIndex) + '</table>'.length;
+      if (startIndex === -1 || endIndex === -1) {
+        // If summary chart not found, send error response
+        const errorMessage = 'Summary chart not found';
+        console.error(errorMessage);
+        const errorHTML = formatErrorHTML(errorMessage);
+        res.status(500).send(errorHTML);
+        return;
+      }
+      // Extract the summary chart HTML
+      const summaryChart = html.substring(startIndex, endIndex);
+      // Send the extracted summary chart as the response
+      res.send(summaryChart);
     });
   });
 
