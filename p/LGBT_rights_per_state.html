@@ -10,6 +10,15 @@
     padding: 20px;
     border: 1px solid #ccc;
   }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  td, th {
+    border: 1px solid black;
+    padding: 8px;
+  }
 </style>
 </head>
 <body style="background-color: rgb(241, 153, 186)">
@@ -18,7 +27,7 @@
   <div id="chart-container"></div>
 
 <script>
-// Array of US states
+
 const states = [
   'Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia',
   'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland',
@@ -28,7 +37,6 @@ const states = [
   'West Virginia', 'Wisconsin', 'Wyoming'
 ];
 
-// Function to create buttons for each state
 function createButtons() {
   const buttonsContainer = document.getElementById('buttons');
 
@@ -40,7 +48,6 @@ function createButtons() {
   });
 }
 
-// Function to fetch and display chart for a specific state
 function fetchChartForState(state) {
   const serverUrl = 'https://aeriecat.space/lgbt-rights/';
   const stateUrl = `${serverUrl}${state}`;
@@ -63,7 +70,6 @@ function fetchChartForState(state) {
     });
 }
 
-// Create buttons for each state
 createButtons();
 </script>
 
