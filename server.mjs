@@ -15,6 +15,7 @@ const logger = winston.createLogger({
   ]
 });
 
+
 // Function to format error message as HTML
 function formatErrorHTML(errorMessage) {
   return `
