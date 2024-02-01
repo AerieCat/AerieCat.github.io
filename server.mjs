@@ -60,11 +60,8 @@ app.get('/lgbt-rights/:state', (req, res) => {
         // If summary table not found, check for summary section
         startIndex = html.indexOf('<span class="mw-headline" id="Summary">Summary</span>');
         if (startIndex === -1) {
-          // If summary section not found, send error response
-          const errorMessage = 'Summary section not found';
-          console.error(errorMessage);
-          const errorHTML = formatErrorHTML(errorMessage);
-          res.status(500).send(errorHTML);
+          html = `<h1>No summary table for this state</h1>` + html;
+          res.send(html);
           return;
         }
       }
@@ -97,6 +94,7 @@ app.get('/lgbt-rights/:state', (req, res) => {
 
   request.end();
 });
+
 
 
 
