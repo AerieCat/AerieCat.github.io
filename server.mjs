@@ -36,6 +36,9 @@ app.get('/test', (req, res) => {
 
 app.get('/lgbt-rights/:state', (req, res) => {
   const state = req.params.state.replace(/ /g, '_');
+  if (state.toLowerCase() === 'georgia') {
+    state += '_(U.S._state)';
+  }
   const url = `https://en.wikipedia.org/wiki/LGBT_rights_in_${state}`;
 
   // Log the constructed URL for debugging
