@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import express from 'express';
 import https from 'https';
 import winston from 'winston';
