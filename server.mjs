@@ -1,5 +1,5 @@
 import express from 'express';
-import http from 'http'; // Importing http module using 'import' syntax
+import https from 'https'; // Import the 'https' module
 import winston from 'winston';
 
 const app = express();
@@ -36,11 +36,14 @@ app.get('/test', (req, res) => {
 
 app.get('/lgbt-rights/:state', (req, res) => {
   const state = req.params.state.replace(/ /g, '_');
-  const url = `https://en.wikipedia.org/wiki/LGBT_rights_in_${state}#Summary_table`; // Use 'http' instead of 'https'
+  const url = `https://en.wikipedia.org/wiki/LGBT_rights_in_${state}#Summary_table`; // Use 'https'
+
+  // Log the constructed URL for debugging
+  console.log('Fetching data from:', url);
   
-  // Perform HTTP GET request
-  const request = http.get(url, (response) => {
-    let html = '<p>chart: </p>';
+  // Perform HTTPS GET request using the 'https' module
+  const request = https.get(url, (response) => {
+    let html = '';
     response.on('data', (chunk) => {
       html += chunk;
     });
@@ -49,6 +52,7 @@ app.get('/lgbt-rights/:state', (req, res) => {
     });
   });
 
+  // Handle HTTPS request errors
   request.on('error', (error) => {
     console.error('Error fetching data:', error);
     const errorHTML = formatErrorHTML(`Error fetching data: ${error.message}`);
