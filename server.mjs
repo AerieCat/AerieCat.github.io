@@ -60,7 +60,7 @@ app.get('/lgbt-rights/:state', (req, res) => {
         // If summary table not found, check for summary section
         startIndex = html.indexOf('<span class="mw-headline" id="Summary">Summary</span>');
         if (startIndex === -1) {
-          html = `<h1>No summary table for this state</h1>` + html;
+          html = `<h1>No summary table for this state</h1><a href=${url}>Link to wikipedia page</a>`;
           res.send(html);
           return;
         }
