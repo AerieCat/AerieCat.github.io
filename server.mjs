@@ -40,7 +40,7 @@ app.get('/lgbt-rights/:state', (req, res) => {
   
   // Perform HTTP GET request
   const request = http.get(url, (response) => {
-    let html = '';
+    let html = '<p>chart: </p>';
     response.on('data', (chunk) => {
       html += chunk;
     });
