@@ -36,7 +36,7 @@ app.get('/test', (req, res) => {
 
 app.get('/lgbt-rights/:state', (req, res) => {
   const state = req.params.state.replace(/ /g, '_');
-  const url = `http://en.wikipedia.org/wiki/LGBT_rights_in_${state}#Summary_table`; // Use 'http' instead of 'https'
+  const url = `https://en.wikipedia.org/wiki/LGBT_rights_in_${state}#Summary_table`; // Use 'http' instead of 'https'
   
   // Perform HTTP GET request
   const request = http.get(url, (response) => {
