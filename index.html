@@ -273,12 +273,32 @@
                 var body = document.body;
                 var currentBackground = getComputedStyle(body).backgroundImage;
                 console.log(currentBackground)
-                if (currentBackground.includes('background_small.jpg')) {
+                if (currentBackground.includes('background-distorted.png')) {
                     console.log('changing background dark')
                     body.style.backgroundImage = "url('backgrounds/background.png')";
                 }
-            }, 100);
+            }, Math.floor(Math.random() * (750)));
         });
+
+        window.addEventListener('hashchange', function() {
+            if (window.location.hash === '#home') {
+                var body = document.body; // Define body here
+                var delay = Math.floor(Math.random() * (750));
+                body.style.backgroundImage = "url('backgrounds/background-distorted.png')";
+                setTimeout(function () {
+                    console.log("it do it");
+                    var currentBackground = getComputedStyle(body).backgroundImage;
+                    console.log(currentBackground)
+                    if (currentBackground.includes('background-distorted.png')) {
+                        console.log('changing background dark')
+                        body.style.backgroundImage = "url('backgrounds/background.png')";
+                    }
+                }, delay);
+            }
+        });
+
+
+
     </script>
 
     <script> //reload javascript on form submit

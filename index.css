@@ -2,7 +2,7 @@
 :root {
     --bg-color: rgba(40,40,40,0.8); 
     --text-color: #fff; 
-    --background-image: url("backgrounds/background_small.jpg");
+    --background-image: url("backgrounds/background-distorted.png");
     --bar-color: rgb(0, 0, 0)
 }
 .light {
