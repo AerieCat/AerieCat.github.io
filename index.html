@@ -282,7 +282,7 @@
 
         window.addEventListener('hashchange', function() {
             if (window.location.hash === '#home') {
-                var body = document.body; // Define body here
+                var body = document.body; 
                 var delay = Math.floor(Math.random() * (750));
                 body.style.backgroundImage = "url('backgrounds/background-distorted.png')";
                 setTimeout(function () {
@@ -294,6 +294,13 @@
                         body.style.backgroundImage = "url('backgrounds/background.png')";
                     }
                 }, delay);
+            }else{
+                var body = document.body; 
+                body.style.backgroundImage = "url('backgrounds/background.png')";
+            }
+
+            if (window.location.hash === '#b/self') {
+                body.style.backgroundImage = "url('backgrounds/background-distorted.png')";
             }
         });
 
