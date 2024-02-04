@@ -273,10 +273,11 @@
                 var body = document.body;
                 var currentBackground = getComputedStyle(body).backgroundImage;
                 console.log(currentBackground)
-                if (currentBackground.includes('background-distorted.png')) {
-                    console.log('changing background dark')
-                    body.style.backgroundImage = "url('backgrounds/background.png')";
-                }
+                if (currentBackground.includes('background-distorted.png') && !(window.location.hash === '#b/body-horror')) {
+    console.log('changing background dark');
+    body.style.backgroundImage = "url('backgrounds/background.png')";
+}
+
             }, Math.floor(Math.random() * (750)));
         });
 
