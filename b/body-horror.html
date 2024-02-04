@@ -9,6 +9,10 @@
             margin-left: 5px;
         }
         
+        .essay {
+            font-size: 16px;
+        }
+
         .container {
             position: relative;
             width: 780px; /* Width of the image */
@@ -67,7 +71,8 @@
 
     </style>
 
-    <h1>aerie (she/it)</h1>
+    <h1>body horror</h1>
+    <p>TW: Dysphoria, Body Horror</p>
     <div class="container">
         <img class="moves" src="blog-images/me-new.png">
     </div>
@@ -98,9 +103,9 @@
         We stay silly
         :3
         <br>
-        She/It<br>
+        i am a user of She/It<br>
         i am the she, but what is the it? <br>
-        I separate myself in two, divorced from the meat i pilot<br>
+        i separate myself in two, divorced from the meat i pilot<br>
         i look in the mirror, theres something there.<br>
         i don't even know what it is<br>
         is that me?<br>
@@ -118,19 +123,40 @@
     <div class="container"></div>
         <img class="moves" src="blog-images/self_portrait.png">
     </div>
-    <h3>
-        i live in a world of perpetual body horror<br>
-        i often forget im in this thing. <br>
-        thats probably for the best<br>
-        we don't get along very well.<br>
-        <br>
-        <br>
-        The concept of Body Horror has always been fascinating to me. I've lived with it my entire life. Growing up i've never liked my body, it always felt wrong. 
-        <br>
-        When i was 16, i was overweight, my memories from the time are fuzzy but i remember looking down one day and being absolutely disgusted at myself. Not knowing what this meant i took the most odvious thing and ran with it. I went from the edge of obese to teetering on underweight in about 6 months, but there was still something wrong. No matter how small i got or what i looked like, i wasn't satisfied.
-        <br>
-        It took another 2 years before i finally came out to myself as trans. I finally seemed to figure out why i was never satisfied with my appearance when i was masculine presenting. I started Hormones on Febuary 4th and by the end of that march, I had left the masculine world behind. I was much happier being feminine presenting. 
-    </h3>
+    <div class="essay">
+        <h3>
+            i live in a world of perpetual body horror<br>
+            i often forget im in this thing. <br>
+            thats probably for the best<br>
+            we don't get along very well.<br>
+        </h3>
+        <p>
+            <br>
+            <br>
+            &emsp;The concept of body horror has always captivated me, a fascination deeply intertwined with my personal journey. Throughout my life, i've grappled with a 
+            discomfort regarding my own body. It's the epitome of body horror— the changing of one's body into something unrecognizable, grotesque, and scary.
+            Puberty serves as a prime example of this for me.
+            <br>
+            &emsp;My childhood was riddled with an unease about my own appearance. I never could recognize my own face in a reflection. I could never put a name on what it 
+            was at the time, but i have vivid memories of being horrified at the
+            changes my body went through. My growing discomfort with myself turned into an indifference toward my appearance. My clothing and presentation were aimed at 
+            letting me bland it as best as possible. At the age of 16, I was so horrified at my appearance i took drastic measures to change it. I went from Obese to 
+            underweight in a bit over 6 months, desperate for a way out of my discontent. However, no matter what i did, the horror of having a body persisted.
+            <br>
+            &emsp;Two years later i came out to myself as transgender and in another year i came out to the world. I started Hormone Therapy in February of 2023 and began what
+            i saw as the alignment of outward appearance with my inner identity. As my appearance and confidence grew, i grew happier and more content with the body i 
+            was stuck in. At this point, it seemed like i had fixed it. I had began to change my body into one that i was comfortable with. Despite the many steps i
+            have taken, remnants of my male birth and puberty remain. Seeing my body blossom into something i have began to love around these points of mental 
+            anguish have lead to my relationship with my body evolving into something distant or detached. 
+            <br>
+            &emsp;I am very disconnected from it, to the point i don't refer to it as my self but rather a thing i have, on the same level as an object. I treat it like a tool,
+            an outward projection of myself i can decorate as i like, but i don't see it as myself. my detachment manifests itself into many struggles, I cut myself 
+            shaving almost daily because of my hatred of facial hair. I dissociate often when showering. I have a deep discomfort with my nude form that contributes heavily
+            to a complex relationship with asexuality. There is a corelation between how much i identify with my body and my depressive state. 
+            <br>
+            &emsp;I can't let my body define me. I am not grotesque; i'm not scary. I am not my body. 
+        </p>
+    </div>
 
     <p><br><br>
     original: Feb 4 2024
@@ -145,8 +171,11 @@
         function updateWidth() {
             let width = getRandomWidth();
             console.log(width);
-            document.querySelectorAll('a, h1, h2, h3, h4, h5, h6, p, span, div, li').forEach(element => {
+            document.querySelectorAll('a, h1, h2, h3, h4, h5, h6, span, div, li').forEach(element => {
                 element.style.setProperty('--stripe-width', width + 'px');
+            });
+            document.querySelectorAll('p').forEach(element => {
+                element.style.setProperty('--stripe-width', width * 0.5 + 'px');
             });
         }
 
