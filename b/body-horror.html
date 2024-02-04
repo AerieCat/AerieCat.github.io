@@ -1,0 +1,148 @@
+<body style="background-color: rgb(0, 0, 0)">
+    <a href="../#blog-index" target="_parent">back to Index</a>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: black;
+            margin-left: 5px;
+        }
+        
+        .container {
+            position: relative;
+            width: 780px; /* Width of the image */
+        }
+        
+        header {
+            text-align: center;
+        }
+        
+        h1 {
+            color: #e100ff;
+            font-size: 2.5em;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            margin-bottom: 20px;
+        }
+        
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            
+        }
+        
+        .moves {
+            width: 770px;
+            margin-bottom: 20px;
+            display: block;
+            opacity: 1;
+            margin: 0 5px;
+        }
+        
+        h1, h2, h3, h4, h5, h6, p, span, div, li {
+            color: magenta;
+        }
+
+        a{
+            color:cyan
+        }
+
+        h1, h2, h3, h4, h5, h6, p, span, div, li {
+            position: relative; 
+            --stripe-width: 5px;
+            text-shadow: var(--stripe-width) 0 red, calc(-1 * var(--stripe-width)) 0 blue;
+            text-align: justify;
+            max-width: 90%;
+        }
+
+        a {
+            position: relative; 
+            --stripe-width: 5px;
+            text-shadow: var(--stripe-width) 0 green, calc(-1 * var(--stripe-width)) 0 blue;
+            text-align: justify;
+            max-width: 90%;
+        }
+
+    </style>
+
+    <h1>aerie (she/it)</h1>
+    <div class="container">
+        <img class="moves" src="blog-images/me-new.png">
+    </div>
+    <h3>
+        We stay silly
+        We stay silly
+        We stay silly
+        We stay silly
+        We stay silly
+        We stay silly
+        We stay silly
+        We stay silly
+        We stay silly
+        We stay silly
+        We stay silly
+        We stay silly
+        We stay silly
+        We stay silly
+        We stay silly
+        We stay silly
+        We stay silly
+        We stay silly
+        We stay silly
+        We stay silly
+        We stay silly
+        We stay silly
+        We stay silly
+        We stay silly
+        :3
+        <br>
+        She/It<br>
+        i am the she, but what is the it? <br>
+        I separate myself in two, divorced from the meat i pilot<br>
+        i look in the mirror, theres something there.<br>
+        i don even know what it is<br>
+        is that me?<br>
+        it might not be human<br>
+        it doesn't look like what humans look like<br>
+        it's strange, distant, <br>
+        parts of it are familiar, comforting even,<br>
+        yet parts of it make me feel emotions stronger than anything else.<br>
+        dread?<br>
+        hate?<br>
+        sadness?<br>
+        i have learned not to trust my eyes<br>
+        because all they see is
+    </h3>
+    <div class="container"></div>
+        <img class="moves" src="blog-images/self_portrait.png">
+    </div>
+    <h3>
+        i live in a world of perpetual body horror<br>
+        i often forget im in this thing. <br>
+        thats probably for the best<br>
+        we don't get along very well.<br>
+        <br>
+        <br>
+        The concept of Body Horror has always been fascinating to me. I've lived with it my entire life. Growing up i've never liked my body, it always felt wrong. When i was 16, i was 
+    </h3>
+
+    <script>
+        function getRandomWidth() {
+            const maxwidth = 3;
+            return (Math.random() * maxwidth);
+        }
+
+        function updateWidth() {
+            let width = getRandomWidth();
+            console.log(width);
+            document.querySelectorAll('a, h1, h2, h3, h4, h5, h6, p, span, div, li').forEach(element => {
+                element.style.setProperty('--stripe-width', width + 'px');
+            });
+        }
+
+        setInterval(updateWidth, 100);
+
+    </script>
+</body>
