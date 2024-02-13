@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color-changing Circles</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    canvas {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="myCanvas"></canvas>
+  <button onclick="addCircle()">Add Circle</button>
+  <button onclick="changeColors()">Change Colors</button>
+  <script>
+    var canvas = document.getElementById('myCanvas');
+    var ctx = canvas.getContext('2d');
+    var circles = [];
+    var backgroundColor = '#FFFFFF'; // Default background color
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      drawBackground(); // Redraw background when canvas size changes
+    }
+
+    window.addEventListener('resize', resizeCanvas);
+
+    function Circle(x, y, radius, color) {
+      this.x = x;
+      this.y = y;
+      this.radius = radius;
+      this.color = color;
+    }
+
+    function drawBackground() {
+      ctx.fillStyle = backgroundColor;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+    }
+
+    function drawCircle(circle) {
+      ctx.beginPath();
+      ctx.arc(circle.x, circle.y, circle.radius, 0, Math.PI * 2);
+      ctx.fillStyle = circle.color;
+      ctx.fill();
+      ctx.closePath();
+    }
+
+    function addCircle() {
+      var centerX = canvas.width / 2;
+      var centerY = canvas.height / 2;
+      var radius = 400; // starting radius
+      var circleColor = (circles.length % 2 === 0) ? backgroundColor : invertColor(backgroundColor); // alternate colors
+      var circle = new Circle(centerX, centerY, radius, circleColor, circles.length);
+      circles.push(circle);
+      circles.sort((a, b) => b.radius - a.radius); // sort circles by radius (from biggest to smallest)
+      drawCircles();
+      growCircle(circle);
+    }
+
+    function changeColors() {
+      backgroundColor = '#' + Math.floor(Math.random()*16777215).toString(16); // random color for background
+      circles.forEach(function(circle) {
+        circle.color = (circle.index % 2 === 0) ? backgroundColor : invertColor(backgroundColor); // alternate colors
+      });
+      drawBackground(); // Redraw background with new color
+      drawCircles(); // Redraw circles with updated colors
+    }
+
+    // Function to invert color
+    function invertColor(hex) {
+      return '#' + (Number(`0x${hex.substr(1)}`) ^ 0xFFFFFF).toString(16).padStart(6, '0');
+    }
+
+    function growCircle(circle) {
+      var shrinkRate = 5; // decrease in radius per frame
+      var interval = setInterval(function() {
+        circle.radius -= shrinkRate;
+        if (circle.radius <= 0) {
+          var index = circles.indexOf(circle);
+          //circles.splice(index, 1); // Remove the circle from the array
+        }
+        drawBackground(); // Clear canvas
+        drawCircles();
+      }, 75); // Adjust the interval for smoother or faster shrinkage
+    }
+
+
+    function drawCircles() {
+      circles.forEach(function(circle) {
+        if (circle.radius > 0)
+        {
+          drawCircle(circle);
+        }
+      });
+    }
+
+    function invertColor(hex) {
+      return '#' + (Number(`0x${hex.substr(1)}`) ^ 0xFFFFFF).toString(16).padStart(6, '0');
+    }
+
+
+    resizeCanvas(); // Call resizeCanvas once initially to set canvas size
+
+    setInterval(function() {
+      addCircle();
+    }, 250);
+  </script>
+</body>
+</html>
