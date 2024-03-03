@@ -7,6 +7,14 @@
         <language>en-us</language>
         <lastBuildDate>9 December 2023</lastBuildDate>
         <item>
+            <title>added a music blog</title>
+            <link>https://aeriecat.space/</link>
+            <pubDate>1 March 2024</pubDate>
+            <description>
+                <![CDATA[I've been wanting to make a music blog for a while, mostly so i can remember all the music i like and when i can't decide what to listen too i can go here]]>
+            </description>
+        </item>
+        <item>
             <title>Created a little scraper</title>
             <link>https://aeriecat.space/#p/LGBT_rights_per_state</link>
             <pubDate>31 January 2024</pubDate>
