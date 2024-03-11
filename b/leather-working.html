@@ -7,6 +7,43 @@
             border: 1px solid #ccc;
             padding: 10px;
         }
+
+        details[open] {
+            display: block;
+        }
+        
+        details summary {
+            list-style: none;
+            position: relative;
+            padding-left: 1.2em;
+            cursor: pointer;    
+        }
+
+        details summary::before {
+            content: '\25B6'; /* Unicode character for a right-pointing triangle */
+            display: inline-block;
+            position: absolute;
+            left: 0.2em;
+            transform: rotate(0);
+            transition: transform 0.2s;
+        }
+
+        details[open] summary::before {
+            transform: rotate(90deg);
+        }
+
+        .img-container{
+            display: flex
+        }
+        .img-container img {
+            max-width: 100%;
+            height: 300px;
+        }
+        .scroll-container {
+            width: 600px; /* Fixed width for the container */
+            overflow-x: auto; /* Enable horizontal scrolling */
+            white-space: nowrap; /* Prevent items from wrapping */
+        }
     </style>
 
     <a href="../#blog-index" target="_parent">back to Index</a>
@@ -14,6 +51,33 @@
     <p>
         I started a new hobby lately, Leather working. It was pretty cheap to get into, only costing about $50 for all the tools and materials to let me make some cool and simple things.
     </p>
+
+
+    <h2>The portfolio section</h2>
+    <details open>
+        <summary><h3>Notebook cover</h3></summary>
+        <ul>
+            <p>The first thing i made when learning the craft was a notebook cover. It is a simple leather cover made with a peice of black leather and a few more to make a pencil strap. It also has an elastic to keep it together. I tried my best to clone the <a href="https://shop.travelerscompanyusa.com/pages/travelers-notebook">travelor's notebook passport size</a> but to size it to fit <a href="https://www.moleskine.com/en-us/shop/notebooks/journals/cahier-journals/?prefn1=size&prefv1=Pocket%203.5x5.5%20in">moleskin cashier journals</a> because i can get those in person and have a strong hatred of online shopping. I'll write more about my journalling in a later blog.</p>
+            <div class="img-container">
+                <img src="blog-images/notebook1.jpg">
+                <img src="blog-images/notebook2.jpg">
+            </div>
+        </ul>
+    </details>
+
+    <details open>
+        <summary><h3>collar</h3></summary>
+        <ul>
+            <p>A friend asked me to make them a collar, so i oblige as it seemed like a good started project. fast forward to the end and i had so many bells and whistles im sure they had no idea how much effort i was putting into it. I started with an autocad drawing of what i wanted it to look like. double checked with my friend, and a week later it was completed. I had to buy some buckles online because they apparently don't carry very many sizes in store. the actual thing has like 10 hours put into it.</p>
+            <div class="scroll-container">
+                <div class="img-container">
+                    <img src="blog-images/collar1.jpg">
+                    <img src="blog-images/collar2.png">
+                    <img src="blog-images/collar3.png">
+                </div>
+            </div>
+        </ul>
+    </details>
 
     <h2> the tutorial section</h2>
     <div class="scrollable-segment">
@@ -53,4 +117,5 @@
             If you have any other ways please <a href="../#home/contact">reach out</a>, I'm still learning, we don't seem to have any other stores that sell leather supplies besides hobby lobby and i hate online shopping. 
         </p>
     </div>
+</body>
  
