@@ -234,12 +234,12 @@
         window.addEventListener("hashchange", function () {
             var fileName = window.location.hash.substr(1);
             if (!fileName) {
-                fileName = "home";
+                fileName = "home/home";
             }
             document.getElementsByName("index")[0].src = fileName;
         });
         if (!window.location.hash) {
-            window.location.hash = "#home";
+            window.location.hash = "#home/home";
         } else {
             window.dispatchEvent(new Event("hashchange"));
         }
@@ -281,7 +281,7 @@
         });
 
         window.addEventListener('hashchange', function() {
-            if (window.location.hash === '#home') {
+            if (window.location.hash === '#home/home') {
                 var body = document.body; 
                 var delay = Math.floor(Math.random() * (750));
                 body.style.backgroundImage = "url('backgrounds/background-distorted.png')";
