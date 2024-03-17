@@ -269,7 +269,7 @@ iframe {
     border: 2px solid var(--text-color);
     font-size: 16px;
     margin-left: 10px;
-    position: relative; /* Set position to relative for positioning pseudo-element */
+    position: relative;
 }
 
 #siteauthor {
@@ -277,7 +277,8 @@ iframe {
     font-style: italic;
     font-size: 16px;
     margin-left: 10px;
-    position: relative; /* Ensure the text remains in the normal flow */}
+    position: relative;
+}
 @media (pointer:none), (pointer:coarse) {
     iframe {
         height: 1200px;
