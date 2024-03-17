@@ -41,6 +41,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
+    if ($name === "Robertjak") {
+        echo "Stop advertising stuff in my guestbook >:c (sorry legitimate people trying to have fun, people kept putting crypto stuff in here)";
+        exit;
+    }
+
     $entry = array(
         "quote" => $quote,
         "author" => $name,
