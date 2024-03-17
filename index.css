@@ -7,7 +7,7 @@
 }
 .light {
     --bg-color: rgba(255,182,193,0.6); 
-    --text-color: #000; 
+    --text-color: rgb(255, 105, 180); 
     --background-image: url("backgrounds/background.jpg");
     --bar-color: rgb(255, 105, 180)
 }
@@ -263,6 +263,21 @@ iframe {
     color: var(--text-color); /* Set the text color */
     cursor: pointer;
 }
+#sadbanner {
+    width: 240px;
+    height: 60px;
+    border: 2px solid var(--text-color);
+    font-size: 16px;
+    margin-left: 10px;
+    position: relative; /* Set position to relative for positioning pseudo-element */
+}
+
+#siteauthor {
+    color: var(--text-color);
+    font-style: italic;
+    font-size: 16px;
+    margin-left: 10px;
+    position: relative; /* Ensure the text remains in the normal flow */}
 @media (pointer:none), (pointer:coarse) {
     iframe {
         height: 1200px;
