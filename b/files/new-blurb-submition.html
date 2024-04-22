@@ -42,12 +42,12 @@
             })
             .catch(error => {
                 console.error('Error:', error);
-                alert('An error occurred. Please try again.');
+                alert('An error occurred: ' + error.message);
             });
     }
 </script>
 </head>
-<body>
+<body style="background-color: rgb(241, 153, 186)">
     <h2>Submit Form to JSON</h2>
     <form onsubmit="event.preventDefault(); submitForm();">
         <label for="title">Title:</label><br>
