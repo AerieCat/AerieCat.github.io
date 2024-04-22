@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Submit Form to JSON</title>
+<script>
+    function submitForm() {
+        // Get form values
+        var title = document.getElementById("title").value;
+        var content = document.getElementById("content").value;
+        var date = new Date().toDateString(); // Current date
+
+        // Create JSON object
+        var blurb = {
+            "title": title,
+            "content": content,
+            "date": date
+        };
+
+        // Read existing JSON data
+        fetch('blurbs.json')
+            .then(response => response.json())
+            .then(data => {
+                // Append new blurb to existing data
+                data.push(blurb);
+
+                // Write updated JSON data to file
+                return fetch('blurbs.json', {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                });
+            })
+            .then(() => {
+                alert('Form submitted successfully!');
+                // Reset form fields
+                document.getElementById("title").value = "";
+                document.getElementById("content").value = "";
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again.');
+            });
+    }
+</script>
+</head>
+<body>
+    <h2>Submit Form to JSON</h2>
+    <form onsubmit="event.preventDefault(); submitForm();">
+        <label for="title">Title:</label><br>
+        <input type="text" id="title" name="title" required><br>
+        <label for="content">Content:</label><br>
+        <textarea id="content" name="content" rows="4" cols="50" required></textarea><br><br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
