@@ -20,7 +20,12 @@
 
         // Read existing JSON data
         fetch('blurbs.json')
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
             .then(data => {
                 // Append new blurb to existing data
                 data.push(blurb);
@@ -56,5 +61,6 @@
         <textarea id="content" name="content" rows="4" cols="50" required></textarea><br><br>
         <button type="submit">Submit</button>
     </form>
+    meow
 </body>
 </html>
