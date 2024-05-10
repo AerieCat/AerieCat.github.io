@@ -1,0 +1,54 @@
+apt update
+apt install nginx
+apt install npm
+apt install php8.1
+apt install git
+cd /var/www/
+git clone https://github.com/AerieCat/AerieCat.github.io
+cd /etc/nginx/sites-available
+nano aeriecat.space
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+server {
+    listen 80;
+    server_name aeriecat.spac www.aeriecat.space;
+
+    root /var/www/AerieCat.github.io;
+    index index.html;
+
+    access_log /var/log/nginx/example.com.access.log;
+    error_log /var/log/nginx/example.com.error.log;
+
+    location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/run/php/php8.1-fpm.sock;
+    }
+
+    location / {
+        try_files $uri $uri/ $uri.html $uri.php =404;
+    }
+}
+
+
+
+#!/bin/bash
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+sudo ln -s /etc/nginx/sites-available/aeriecat.space /etc/nginx/sites-enabled/
+apt remove apache2
+
+
+cd
+nano pull.sh
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+cd /var/www/AerieCat.github.io
+git pull
+
+systemctl restart php8.1-fpm
+systemctl restart nginx
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+chmod +x pull.sh
+
+
+sudo apt install php-fpm php-mysql
+chmod o+w /var/www/AerieCat.github.io/view_count.txt 
+chmod o+w /var/www/AerieCat.github.io/ratelimit.txt 
+
