@@ -7,6 +7,17 @@
         <language>en-us</language>
         <lastBuildDate>10 May 2024</lastBuildDate>
         <item>
+            <title>i'm back bitches! also we went back to pages</title>
+            <link>https://aeriecat.space/</link>
+            <pubDate>25 Sept 2024</pubDate>
+            <description>
+                <![CDATA[There's a huricane going through here so i have a bunch of free time. I decided to dust off this project. Running my own web server was more work then it was worth. I kept getting flasly reported as a malware site and stuff. anyway, it'll be real hard to take down a static github pages site, so we went back.<br>Lost items:
+                <li>the lgbt right tracker needed node.js</li>
+                <li>guestbook needed php</li>
+                <li>page counter needed php</li>]]>
+            </description>
+        </item>
+        <item>
             <title>site taken down temporarily due to false report, lost the guestbook</title>
             <link>https://aeriecat.space/</link>
             <pubDate>10 May 2024</pubDate>
