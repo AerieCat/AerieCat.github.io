@@ -263,6 +263,23 @@ iframe {
     color: var(--text-color); /* Set the text color */
     cursor: pointer;
 }
+.tooltip {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 5px;
+    border-radius: 4px;
+    z-index: 10;
+    transition: opacity 0.2s;
+}
+
+.entry-link {
+    position: relative; /* Required for absolute positioning of tooltip */
+}
+
+.entry {
+    margin-bottom: 10px;
+}
 #sadbanner {
     width: 240px;
     height: 60px;

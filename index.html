@@ -178,7 +178,7 @@
             </div>
         </div>
 
-        <script>
+        <!--<script>
             // quote wall
             document.addEventListener("DOMContentLoaded", function () {
             fetch("randoms.json")
@@ -220,10 +220,10 @@
                 console.error("Error fetching or processing JSON:", error);
                 });
             });
-        </script>
+        </script>-->
         
         
-        <script>
+        <!--<script>
             // Function to fetch and update the view count
             function updateViewCount() {
                 fetch('counter.php')
@@ -237,7 +237,7 @@
 
             // Run the function when the page loads
             window.addEventListener('load', updateViewCount);
-        </script>
+        </script>-->
 
         <script> //handles which html to load into the iframe based on url
             /* iframe code */
@@ -318,11 +318,11 @@
 
         </script>
 
-        <script> //reload javascript on form submit
+        <!--<script> //reload javascript on form submit
         function submitForm() {
             window.location.reload();
         }
-        </script>
+        </script>-->
 
         <script> // rss feed
             const rssFeedDiv = document.getElementById('rss_reader');
@@ -354,6 +354,19 @@
                         entryDiv.appendChild(cornerText);
                         entryDiv.innerHTML += `<h2>${title}</h2>`;
 
+                        const tooltip = document.createElement('div');
+                        tooltip.classList.add('tooltip');
+                        tooltip.textContent = description;
+                        tooltip.style.display = 'none';
+
+                        entryLink.addEventListener('mouseover', () => {
+                            tooltip.style.display = 'block';
+                        });
+                        entryLink.addEventListener('mouseout', () => {
+                            tooltip.style.display = 'none';
+                        });
+
+                        entryDiv.appendChild(tooltip);
                         entryLink.appendChild(entryDiv);
                         rssFeedDiv.appendChild(entryLink);
                     });
