@@ -356,7 +356,7 @@
 
                         const tooltip = document.createElement('div');
                         tooltip.classList.add('tooltip');
-                        tooltip.textContent = description;
+                        tooltip.innerHTML = description;
                         tooltip.style.display = 'none';
 
                         entryLink.addEventListener('mouseover', () => {
