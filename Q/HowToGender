@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Queer Resource Hub</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #111;
+            color: #eee;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://www.transparenttextures.com/patterns/asfalt-dark.png'); /* Adds subtle texture */
+        }
+        
+        /* Header and Footer Styling */
+        header, footer {
+            background-color: #d90000;
+            color: #fff;
+            padding: 30px 20px;
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+        
+        /* Container and Section Styling */
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+        
+        .section {
+            background-color: #222;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            border-left: 5px solid #d90000;
+            position: relative;
+        }
+        
+        .section::before {
+            content: "▼"; /* Fist emoji as a symbol */
+            font-size: 1.5em;
+            color: #d90000;
+            position: absolute;
+            top: -10px;
+            right: 15px;
+        }
+        
+        h2 {
+            font-size: 1.8em;
+            color: #d90000;
+            margin-top: 0;
+        }
+
+        /* Link Styling with Animated Hover */
+        .section a {
+            color: #ff6666;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-bottom: 2px solid #d90000;
+        }
+        
+        .section a:hover {
+            color: #fff;
+            border-bottom: 2px solid #ff6666;
+            background-color: #d90000;
+            padding: 2px;
+            border-radius: 4px;
+        }
+
+        /* Footer Styling */
+        footer {
+            font-size: 0.9em;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="http://aeriecat.space/QueerLiberation" style="text-decoration:none"><h1>Queer Resource Hub</h1></a>
+        <p>United in support, safety, and strength.</p>
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <h2>Transfem</h2>
+
+            <li><a href="https://www.abrathatfits.org/calculator.php" target="_blank">
+                A bra that fits
+            </a></li><p>A website to calculate what size bra you need</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="section">
+            <h2>Transmasc</h2>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="section">
+            <h2>Clothing Size Conversion Charts</h2>
+
+            <details>
+                <summary>Shoes</summary>
+                <img src="pics/EB-BLOG-080117-WBball-Size-Chart_600x600.webp" width="500px">
+            </details>
+
+            <details>
+                <summary>Tops (Shirts, Blouses, Jackets)</summary>
+                <p>
+                    <b>General Rule:</b>
+                    In general, men’s sizes run larger than women’s. To convert a men’s shirt size to a women’s size, subtract about 1.5 to 2 sizes. For example, if you typically wear a men’s size Medium, you would likely fit into a women’s size Large.<br><br>
+
+                    Men’s XS = Women’s S<br>
+                    Men’s S = Women’s M<br>
+                    Men’s M = Women’s L<br>
+                    Men’s L = Women’s XL<br>
+                </p>
+            </details>
+
+            <details>
+                <summary>Pants (Jeans, Trousers)</summary>
+                <p>
+                    <b>General Rule:</b><br>
+                    The most noticeable difference between men’s and women’s pants sizes is how they are measured. Men’s pants are typically labeled by waist size and inseam (length) (e.g., 32×32), while women’s sizes follow a number system (e.g., 8, 10, 12). To convert men’s waist sizes to women’s, subtract roughly 21 inches. For instance, a men’s size 32 waist would roughly correspond to a women’s size 10.<br><br>
+
+                    Men’s 30 waist = Women’s 8<br>
+                    Men’s 32 waist = Women’s 10<br>
+                    Men’s 34 waist = Women’s 12<br>
+                    Men’s 36 waist = Women’s 14<br>
+                </p>
+            </details>
+
+            <details>
+                <summary>Underwear</summary>
+                <p>
+                    <b>General Rule:</b><br>
+                    women's underwear:<br>
+                    Hip Measurement 32-34 inches: Opt for a size 5 panty.<br>
+                    Hip Measurement 35-37 inches: Choose size 6.<br>
+                    Hip Measurement 38-40 inches: Go with size 7.<br>
+                    Hip Measurement 41-42 inches: Select size 8.<br>
+                    Hip Measurement 43-44 inches: Size 9 is recommended.<br>
+                    Hip Measurement 45-46 inches: Size 10 will be the best fit.<br><br>
+
+                    Men's underwear <br>
+                    <img src="pics/Screenshot from 2025-02-10 15-09-27.png" width="500px">
+                </p>
+            </details>
+
+        
+            <h3>More Resources</h3>
+                <p>
+                    <li><a href="https://www.transgenderpulse.com/clothing-size-charts/" target="_blank">
+                        TransgenderPulse Sizing Charts
+                    </a></li><p>A list of more charts and measuring tips</p>
+                </p>
+            </details>
+        </div>
+    </div>
+    
+    <footer>
+        Queer Resource Hub | reach out to @aeriecat on discord to add resources</p>
+    </footer>
+</body>
