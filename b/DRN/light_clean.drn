@@ -1,0 +1,83 @@
+# Author: Malware
+Timestamp: systemClock()
+
+DEFINITION: Toggles = ["Trash", "Desk", "Bed", "Table", "Laundry"] 
+CONTROL: Ask for opperator input on if any toggles should be removed
+
+DEFINITION: Zone_3 = Kitchen
+DEFINITION: Zone_1 = Bedroom
+
+JOB: Simple_Cleaning
+	CONDITION: Toggles contains "Trash"
+		JOB: Trash
+			CONDITION: Trash can above half full
+				CONDITION: NOT(Trash can has a bag)
+					TASK: Move to Zone_3
+					TASK: Retreive 1 trash bag
+					TASK: Move to Zone_1
+					TASK: Empty trash can contents into bag
+				TASK: Move trash bag to floor
+				CONTROL: Add trashbag to Tools
+	CONDITION: Toggles contains "Trash"
+		JOB: Clean_Desk
+			DEFINITION: Desk_Items = all items that are on the desk
+			
+			FOR: item in Desk_Items 
+				CONDITION (item.disposable == True) AND (item.used == TRUE)
+					TASK: Move item to trash bag
+			FOR: item in Desk_Items 
+				CONDITION NOT(item.home == "Desk")
+					TASK: Move item to item.home
+	CONDITION: Toggles contains "Trash"		
+		JOB: Clean_Bed
+			DEFINITION: Bed_Items = all items that are on the bed
+			
+			FOR: item in Bed_Items 
+				CONDITION (item.disposable == True) AND (item.used == TRUE)
+					TASK: Move item to trash bag
+			FOR: item in Bed_Items 
+				CONDITION NOT(item.home == "Desk")
+					TASK: Move item to item.home
+	CONDITION: Toggles contains "Trash"
+		JOB: Clean_Bedside_table
+			DEFINITION: Bedside_table_Items = all items that are on the bed
+			
+			FOR: item in Bedside_table_Items 
+				CONDITION (item.disposable == True) AND (item.used == TRUE)
+					TASK: Move item to trash bag
+			FOR: item in Bedside_table_Items 
+				CONDITION NOT(item.home == "Desk")
+					TASK: Move item to item.home
+					
+	CONDITION: Toggles contains "Laundry"
+		JOB: Laundry
+			DEFINITION: Clothing = all fabric garments meant for the unit to wear
+			FOR: item in Clothing
+				CONDITION: NOT(item.location == item.home) 
+					TASK: Move item to Bed
+					CONDITION: item requires folding
+						TASK: fold item
+			FOR: item in Clothing
+				CONDITION: NOT(item.location == Bed) 
+					TASK: Move item to item.home
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		

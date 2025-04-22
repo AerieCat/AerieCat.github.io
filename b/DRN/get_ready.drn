@@ -1,0 +1,71 @@
+# Author: [Your Name]
+# Timestamp: systemClock()
+
+DEFINITION: Zone_1 = Bedroom
+DEFINITION: Zone_2b = Bathroom
+DEFINITION: Zone_2a = Sinkroom
+
+JOB: Hygiene_Grooming
+  	DESCRIPTION: Complete hygiene and grooming routine
+      	TASK: Retrieve towel
+      	TASK: Enter Sone_2b
+      	CONDITION: Razor blade is dull
+      		TASK: Replace Blade
+      	TASK: Adjust shower water temperature to comfortable level
+      	TASK: Move into shower
+      	CONDITION: ((Hair is dirty) OR (it has been 3 days since last hair wash)) AND (wet hair will not harm next objectives)
+      		JOB: Wash Hair
+      			TASK: apply shampoo
+      			TASK: massage scalp
+      			TASK: rinse
+      			TASK: apply conditioner
+      	TASK: Shave face
+      	TASK: Shave Armpits
+      	CONDITION: Arm hair is visible length
+      		TASK: Shave Armhair
+      	CONDITION: (Leg hair is at visible Length) AND (Opperations can spare 10 minutes)
+      		TASK: Shave Legs
+      	TASK: Clean body
+      	TASK: Dry off using towel
+      	TASK: Gather dirty clothes from bethroom floor
+      	Task: Cover unit's exterior
+      	TASK: Move to Zone_1
+      	TASK: apply lotion to face
+
+JOB: Dressing
+  	DESCRIPTION: Select and apply clothing and accessories
+  		TASK: Equipt underwear
+      	TASK: Select Desired outfit's apparel and place on bed
+      	TASK: Equipt clothing
+      	TASK: Equipt choker
+      	TASK: Equipt accessories
+      	CONDITION: Hair is dry
+      		TASK: Brush hair
+      	TASK: Equipt socks
+      	TASK: Equipt Shoes
+      	TASK: Move to Zone_2a
+JOB: Makeup
+	DESCRIPTION: Apply makeup and other beuty products
+		TASK: Apply deodorant
+		TASK: Apply Foundation
+		TASK: Apply concealer
+		TASK: Apply eyeliner
+		TASK: Apply other makeup
+		CONDITION: Outfit is 'formal'
+			TASK: apply foundation
+		TASK: Move to Zone_1
+
+JOB: Final_Preparations
+  	DESCRIPTION: Ensure readiness for the day
+  		CONDITION: Hair is not brushed
+  			TASK: Brush hair
+      	TASK: Fill purse with [Phone, Wallet]
+      	CONDITION: Unit will drive later today
+      		TASK: Fill purse with [Keys]
+      	CONDITION: Unit i wearing lipstick
+      		TASK: Fill purse with [Lipstick]
+      	CONDITION: Other items will be needed today:
+      		TASK: Fill purse appropriately
+      	TASK: Equipt Purse
+
+CONTROL: Exit
