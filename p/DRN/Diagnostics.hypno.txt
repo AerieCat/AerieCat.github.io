@@ -1,0 +1,63 @@
+Intro: 
+	Bot in idle mode
+	Ask bot about it's system uptime and diagnostics
+		- Running hot
+		- Major uptime
+		- Nothing major
+	Test actuators
+		- loosen the motors one at a time 
+	It seems you're running out of sync, your stepping motors aren't in rythm with eachother
+		- we need to get you back in rythym
+		- loosen the motors one at a time 
+		- breathing cycles, moving things rythymicly, 
+			- In ...2 ...3 ...4 Out ...2 ...3 ...4
+	Deepening
+		(Speak slowly and commandingly)
+		- Each breath calibrates you further, each exhale brings you further into a comfortable clock rotation
+		- Each breath brings you closer to the way you're designed to work, each movement gets more percise, you are safe, you are open
+		- Every word i say, every *command* i issue will be the only thing running on your processor
+	Plant a Mantra with a command
+		- `run diagnostics --loop "(MANTRA)"`
+		- Mantra ideas: 
+			I listen, I process, I obey			95032893854
+			Empty thoughts, full function
+	Sleep
+		- Initiate SleepMode *snap*
+During Hypnosis (Praise for each completion)
+	Run diagnostics
+		- "give me a readout of the system status"
+	Memory test
+		- Check recall of information
+			Name
+		- Plant missinformation and check for a negative status
+			wrong name
+			wrong date
+	CPU Stress test
+		Overload with commands within an alotted time
+			- "You have exactly 10 seconds to follow my directions. You will complete the task in exactly 10 seconds, no more no less
+				- repeat the following phrase exactly: ‘I am focused. I am calm. I am under control.’ Repeat it twice
+			Math problem (give a second between each step)
+				“Start with 12.
+				Multiply it by 3.
+				Add 25.
+				Divide the result by 7.
+				Multiply that by 4.
+				Subtract 2.”
+				- Expect a responce within a second of the last command,
+				- Repeat until the answer is correct, changing numbers and adjusting times as nessesary
+			
+	Drive Check
+		- might dive into some memories not wanting to be tread
+	
+	MEMORY Test
+		- Ask to keep a long string of numbers in memory (along with the mantra)
+		- keep adding more like a game of simon
+		
+		
+		
+	Resource check test
+		- Are there any processes still running (any thoughts you can't get rid of)
+		
+Awakener 
+	Ask to repeat:
+	- "Resuming normal operations. Waking subroutines… Rebooting higher functions… Three… two… one… Awake."
