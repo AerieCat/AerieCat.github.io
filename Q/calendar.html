@@ -171,7 +171,7 @@
 
     <div class="container">
         <div class="section">
-            <h2>Upcoming Events - July 2025</h2>
+            <h2>Upcoming Events</h2>
             <div class="calendar" id="calendar">
                 <div id="calendar-controls" style="display: flex; justify-content: space-between; margin-bottom: 1em;">
                     <button id="prev-month" style="background: none; border: 1px solid #ff6666; color: #ff6666; padding: 5px 10px;">← Prev</button>
@@ -218,8 +218,9 @@
     const daysContainer = document.getElementById('calendar-days');
     const eventDetails = document.getElementById('event-details');
 
-    let currentYear = 2025;
-    let currentMonth = 6;
+    const day = new Date();
+    let currentYear = day.getFullYear();
+    let currentMonth = day.getMonth();
     let allEvents = {};
 
     function getDaysInMonth(year, month) {
