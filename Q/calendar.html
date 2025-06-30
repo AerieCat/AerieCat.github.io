@@ -213,162 +213,167 @@
     </footer>
     
 
-    <script>
-    const eventsUrl = 'https://script.google.com/macros/s/AKfycbwigO7Qj28TM5qj6tbDhRxAz9OhThRv9YeISUhDUv4dicF3mkRQxoOKFhNlf1sp6hlNJg/exec';
-const daysContainer = document.getElementById('calendar-days');
-const eventDetails = document.getElementById('event-details');
-
-let currentYear = 2025;
-let currentMonth = 6; // July (0-indexed)
-let allEvents = {}; // cached events
-
-function getDaysInMonth(year, month) {
-    return new Date(year, month + 1, 0).getDate();
-}
-
-function getFirstDay(year, month) {
-    return new Date(year, month, 1).getDay();
-}
-
-// Group events by date string "YYYY-MM-DD"
-function groupEventsByDate(eventsArray) {
-    const grouped = {};
-    for (const event of eventsArray) {
-        const dateKey = event["Date"]?.split('T')[0];
-        if (!dateKey) continue;
-
-        const normalizedEvent = {
-            title: event["Title of event"] || "Untitled Event",
-            org: event['Org/club name (if hosted by an org/club, otherwise put "non-org")'] || "Unknown Org",
-            desc: event["Short Description"] || "",
-            time: event["Start Time"] && event["End Time"] ? `${event["Start Time"]} - ${event["End Time"]}` : event["Start Time"] || "Time not specified",
-            location: event["location (Make sure to add what campus it's on if it's on campus) (if online, say so and add a link in the more info box)"] || "No location specified",
-            link: event["Link to RSVP/more info"] || "#"
-        };
-
-        if (!grouped[dateKey]) grouped[dateKey] = [];
-        grouped[dateKey].push(normalizedEvent);
-    }
-    return grouped;
-}
-
-// JSONP loader
-function loadEventsJSONP(url, callbackName = 'handleEvents') {
-    return new Promise((resolve, reject) => {
-        const script = document.createElement('script');
-        window[callbackName] = function (data) {
-            try {
-                // No need to parse times, already text
-                resolve(data);
-            } catch (err) {
-                reject(err);
-            } finally {
-                delete window[callbackName];
-                script.remove();
-            }
-        };
-
-        script.src = `${url}?callback=${callbackName}`;
-        script.onerror = () => reject(new Error('Failed to load JSONP script'));
-        document.body.appendChild(script);
-    });
-}
-
-async function loadAndRenderCalendar() {
-    try {
-        const events = await loadEventsJSONP(eventsUrl);
-        allEvents = groupEventsByDate(events);
-        renderCalendar(allEvents);
-    } catch (err) {
-        console.error('Error loading events:', err);
-        if (eventDetails)
-            eventDetails.innerHTML = `<p style="color:#f66;">Failed to load events.</p>`;
-    }
-}
-
-function renderCalendar(eventsByDate) {
+<script>
+    const eventsUrl = 'https://script.google.com/macros/s/AKfycbxIARqZ2UHbL0t3B7mlISm-g0NyH_QQu7pYIaGygczgiFgsmMig4x4yPiIPkRtUj4O4dQ/exec';
     const daysContainer = document.getElementById('calendar-days');
-    const calendarTitle = document.getElementById('calendar-title');
-    const daysInMonth = getDaysInMonth(currentYear, currentMonth);
-    const firstDay = getFirstDay(currentYear, currentMonth);
+    const eventDetails = document.getElementById('event-details');
 
-    const monthName = new Date(currentYear, currentMonth).toLocaleString('default', { month: 'long' });
-    calendarTitle.textContent = `${monthName} ${currentYear}`;
+    let currentYear = 2025;
+    let currentMonth = 6;
+    let allEvents = {};
 
-    daysContainer.innerHTML = '';
-
-    for (let i = 0; i < firstDay; i++) {
-        const empty = document.createElement('div');
-        empty.className = 'empty';
-        daysContainer.appendChild(empty);
+    function getDaysInMonth(year, month) {
+        return new Date(year, month + 1, 0).getDate();
     }
 
-    for (let day = 1; day <= daysInMonth; day++) {
-        const dateKey = `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
-        const eventCount = eventsByDate[dateKey]?.length || 0;
+    function getFirstDay(year, month) {
+        return new Date(year, month, 1).getDay();
+    }
 
-        const cell = document.createElement('div');
-        cell.textContent = day;
-        cell.className = eventCount > 0 ? 'event' : '';
-        cell.style.cursor = 'pointer';
+    // Group events by date string "YYYY-MM-DD"
+    function groupEventsByDate(eventsArray) {
+        const grouped = {};
+        const startKey = "Start Time (ei. \"5:00 PM\")";
+        const endKey = "End Time  (ei. \"7:00 PM\")";
+        const orgKey = 'Org/club name (if hosted by an org/club, otherwise put "non-org")';
+        const locationKey = "location (Make sure to add what campus it's on if it's on campus) (if online, say so and add a link in the more info box)";
+        const linkKey = "Link to RSVP/more info";
 
-        if (eventCount > 0) {
-            const starDiv = document.createElement('div');
-            let stars = '★'.repeat(Math.min(3, eventCount));
-            if (eventCount > 3) stars += '+';
-            starDiv.textContent = stars;
-            starDiv.className = 'event-stars';
-            starDiv.title = `${eventCount} event${eventCount > 1 ? 's' : ''}`;
-            cell.appendChild(starDiv);
+        for (const event of eventsArray) {
+            const dateKey = event["Date"]?.split('T')[0];
+            if (!dateKey) continue;
+
+            const normalizedEvent = {
+                title: event["Title of event"] || "Untitled Event",
+                org: event[orgKey] || "Unknown Org",
+                desc: event["Short Description"] || "",
+                time: (event[startKey] && event[endKey])
+                    ? `${event[startKey]} - ${event[endKey]}`
+                    : (event[startKey] || "Time not specified"),
+                location: event[locationKey] || "No location specified",
+                link: event[linkKey] || "#"
+            };
+
+            if (!grouped[dateKey]) grouped[dateKey] = [];
+            grouped[dateKey].push(normalizedEvent);
         }
+        return grouped;
+    }
 
-        cell.addEventListener('click', () => {
-            showEvents(dateKey, eventsByDate[dateKey] || []);
+
+    // JSONP loader
+    function loadEventsJSONP(url, callbackName = 'handleEvents') {
+        return new Promise((resolve, reject) => {
+            const script = document.createElement('script');
+            window[callbackName] = function (data) {
+                try {
+                    resolve(data);
+                } catch (err) {
+                    reject(err);
+                } finally {
+                    delete window[callbackName];
+                    script.remove();
+                }
+            };
+
+            script.src = `${url}?callback=${callbackName}`;
+            script.onerror = () => reject(new Error('Failed to load JSONP script'));
+            document.body.appendChild(script);
         });
-
-        daysContainer.appendChild(cell);
     }
-}
 
-function showEvents(date, items = []) {
-    eventDetails.innerHTML = `
-        <h3 style="color:#ff6666;">Events on ${date}</h3>
-        ${
-            items.length > 0
-            ? items.map(item => `
-                <div style="margin-bottom: 15px; padding: 10px; background-color: #1c1c1c; border-left: 3px solid #d90000; border-radius: 5px;">
-                    <strong style="color:#ff6666;">${item.title}</strong><br>
-                    <em>${item.desc}</em><br>
-                    🏳️‍🌈 Hosted by: ${item.org}<br>
-                    🕓 <strong>${item.time}</strong><br>
-                    📍 ${item.location}<br>
-                    🔗 <a href="${item.link}" target="_blank" rel="noopener">More Info / RSVP</a>
-                </div>
-            `).join('')
-            : `<p>No events scheduled for this day.</p>`
+    async function loadAndRenderCalendar() {
+        try {
+            const events = await loadEventsJSONP(eventsUrl);
+            allEvents = groupEventsByDate(events);
+            renderCalendar(allEvents);
+        } catch (err) {
+            console.error('Error loading events:', err);
+            if (eventDetails)
+                eventDetails.innerHTML = `<p style="color:#f66;">Failed to load events.</p>`;
         }
-    `;
-}
-
-loadAndRenderCalendar();
-
-document.getElementById('prev-month').addEventListener('click', () => {
-    currentMonth--;
-    if (currentMonth < 0) {
-        currentMonth = 11;
-        currentYear--;
     }
-    renderCalendar(allEvents);
-});
 
-document.getElementById('next-month').addEventListener('click', () => {
-    currentMonth++;
-    if (currentMonth > 11) {
-        currentMonth = 0;
-        currentYear++;
+    function renderCalendar(eventsByDate) {
+        daysContainer.innerHTML = '';
+        const calendarTitle = document.getElementById('calendar-title');
+        const daysInMonth = getDaysInMonth(currentYear, currentMonth);
+        const firstDay = getFirstDay(currentYear, currentMonth);
+        const monthName = new Date(currentYear, currentMonth).toLocaleString('default', { month: 'long' });
+        calendarTitle.textContent = `${monthName} ${currentYear}`;
+
+        for (let i = 0; i < firstDay; i++) {
+            const empty = document.createElement('div');
+            empty.className = 'empty';
+            daysContainer.appendChild(empty);
+        }
+
+        for (let day = 1; day <= daysInMonth; day++) {
+            const dateKey = `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+            const eventCount = eventsByDate[dateKey]?.length || 0;
+
+            const cell = document.createElement('div');
+            cell.textContent = day;
+            cell.className = eventCount > 0 ? 'event' : '';
+            cell.style.cursor = 'pointer';
+
+            if (eventCount > 0) {
+                const starDiv = document.createElement('div');
+                let stars = '★'.repeat(Math.min(3, eventCount));
+                if (eventCount > 3) stars += '+';
+                starDiv.textContent = stars;
+                starDiv.className = 'event-stars';
+                starDiv.title = `${eventCount} event${eventCount > 1 ? 's' : ''}`;
+                cell.appendChild(starDiv);
+            }
+
+            cell.addEventListener('click', () => {
+                showEvents(dateKey, eventsByDate[dateKey] || []);
+            });
+
+            daysContainer.appendChild(cell);
+        }
     }
-    renderCalendar(allEvents);
-});
+
+    function showEvents(date, items = []) {
+        eventDetails.innerHTML = `
+            <h3 style="color:#ff6666;">Events on ${date}</h3>
+            ${
+                items.length > 0
+                ? items.map(item => `
+                    <div style="margin-bottom: 15px; padding: 10px; background-color: #1c1c1c; border-left: 3px solid #d90000; border-radius: 5px;">
+                        <strong style="color:#ff6666;">${item.title}</strong><br>
+                        <em>${item.desc}</em><br>
+                        🏳️‍🌈 Hosted by: ${item.org}<br>
+                        🕓 <strong>${item.time}</strong><br>
+                        📍 ${item.location}<br>
+                        🔗 <a href="${item.link}" target="_blank" rel="noopener">More Info / RSVP</a>
+                    </div>
+                `).join('')
+                : `<p>No events scheduled for this day.</p>`
+            }
+        `;
+    }
+
+    loadAndRenderCalendar();
+
+    document.getElementById('prev-month').addEventListener('click', () => {
+        currentMonth--;
+        if (currentMonth < 0) {
+            currentMonth = 11;
+            currentYear--;
+        }
+        renderCalendar(allEvents);
+    });
+
+    document.getElementById('next-month').addEventListener('click', () => {
+        currentMonth++;
+        if (currentMonth > 11) {
+            currentMonth = 0;
+            currentYear++;
+        }
+        renderCalendar(allEvents);
+    });
 </script>
 
 
