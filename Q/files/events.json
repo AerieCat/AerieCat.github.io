@@ -1,0 +1,99 @@
+[
+  {
+    "date": "2025-07-03",
+    "org": "Drag Collective ATL",
+    "desc": "Open Mic Drag Night",
+    "time": "8:00 PM",
+    "location": "Red Light Café",
+    "link": "https://example.com/drag-night"
+  },
+  {
+    "date": "2025-07-05",
+    "org": "ATL Mutual Aid",
+    "desc": "Monthly Mutual Aid Meetup",
+    "time": "6:00 PM",
+    "location": "The Bakery, Atlanta",
+    "link": "https://example.com/mutual-aid"
+  },
+  {
+    "date": "2025-07-07",
+    "org": "Southern Queer Youth",
+    "desc": "Art Build for Protest",
+    "time": "3:00 PM - 6:00 PM",
+    "location": "7 Stages Theater",
+    "link": "https://example.com/art-build"
+  },
+  {
+    "date": "2025-07-09",
+    "org": "Trans Resources ATL",
+    "desc": "Binder Drive Pickup",
+    "time": "4:00 PM - 7:00 PM",
+    "location": "Phoenix Center",
+    "link": "https://example.com/binder-drive"
+  },
+  {
+    "date": "2025-07-11",
+    "org": "Queer D&D ATL",
+    "desc": "Intro Campaign: One-Shot Night",
+    "time": "6:30 PM",
+    "location": "Joystick Gamebar",
+    "link": "https://example.com/queer-dnd"
+  },
+  {
+    "date": "2025-07-13",
+    "org": "Community Defense Network",
+    "desc": "Self-Defense Training: Open to All",
+    "time": "1:00 PM - 3:00 PM",
+    "location": "Revolution Hall",
+    "link": "https://example.com/self-defense"
+  },
+  {
+    "date": "2025-07-17",
+    "org": "Free Store ATL",
+    "desc": "Clothing Swap - All sizes welcome!",
+    "time": "12:00 PM - 4:00 PM",
+    "location": "Trinity Commons",
+    "link": "https://example.com/clothing-swap"
+  },
+  {
+    "date": "2025-07-20",
+    "org": "Black & Pink ATL",
+    "desc": "Letter Writing to Incarcerated Queer Folks",
+    "time": "2:00 PM - 5:00 PM",
+    "location": "Criminal Records ATL",
+    "link": "https://example.com/letter-writing"
+  },
+  {
+    "date": "2025-07-22",
+    "org": "DIY Zine Circle",
+    "desc": "Skillshare + Collage & Print Night",
+    "time": "5:00 PM - 9:00 PM",
+    "location": "WonderRoot Studios",
+    "link": "https://example.com/zine-night"
+  },
+  {
+    "date": "2025-07-25",
+    "org": "Market Hugs",
+    "desc": "Vendor Fair with local queer artists",
+    "time": "2:00 PM - 9:00 PM",
+    "location": "Hurt Park, ATL",
+    "link": "https://markethugs.org"
+  },
+  {
+    "date": "2025-07-25",
+    "org": "Queer Bakers Co-op",
+    "desc": "Bake Sale to support housing fund",
+    "time": "3:00 PM",
+    "location": "Next to Market Hugs booth",
+    "link": "https://example.com/bake-sale"
+  },
+  {
+    "date": "2025-07-30",
+    "org": "Solidarity Kitchen ATL",
+    "desc": "Cookout & Resource Exchange",
+    "time": "5:00 PM - 8:00 PM",
+    "location": "Mozley Park",
+    "link": "https://example.com/cookout"
+  }
+]
+
